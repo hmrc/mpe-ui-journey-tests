@@ -49,5 +49,4 @@ object GovernmentGateway extends Enumeration {
       case _ => throw new IllegalArgumentException(s"No gateway configuration for environment: '$env'")
     }
   }
-
 }

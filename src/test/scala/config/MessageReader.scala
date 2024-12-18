@@ -34,5 +34,5 @@ object MessageReader {
     val modifiedKey = key.replaceFirst("'", "").replaceAll(" +", "")
     messageResourceText.getString(modifiedKey)
   }
-
 }
+

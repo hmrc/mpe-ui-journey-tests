@@ -56,3 +56,4 @@ object Hooks extends ScalaDsl with EN with Browser with BrowserDriver with MpeSt
     }
 
 }
+
