@@ -5,7 +5,7 @@ Feature:As a PSA
   Scenario: Enter member details and navigate to MPE Results page
     Given I have a new session
     And I fill in the auth details for enrolment PSA with value A2100001
-    Then  I should be on the "Members Protections Enhancements" page
+    Then I should be on the "members-protections-and-enhancements" page
     And I click the "Start Journey" button
     Then  I should be on the "Pension Scheme Administrator or Practitioner" page
     And I click the "Administrator View" button

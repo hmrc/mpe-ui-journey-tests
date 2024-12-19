@@ -35,7 +35,7 @@ class LoginStepDefs extends MpeSteps {
   And("""^I fill in the auth details for enrolment (.*) with value (.*)$""") { (enrol: String, value:String)=>
     go to "http://localhost:9949/auth-login-stub/gg-sign-in"
 
-    setTextField(NameQuery("redirectionUrl"), "http://localhost:30029/members-protections-enhancements")
+    setTextField(NameQuery("redirectionUrl"), "http://localhost:30029/members-protections-and-enhancements")
 
     enrol.trim.toUpperCase match {
       case "PSA" =>

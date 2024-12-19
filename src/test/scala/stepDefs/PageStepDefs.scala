@@ -45,10 +45,10 @@ class PageStepDefs extends MpeSteps {
   }
 
   Then("""^I should be on the "(.*)" page""") { title: String =>
-    if(title.contains("Give feedback") || title.contains("Member Pension Enhancement (MPE) checker")) {
+    if(title.contains("Give feedback") || title.contains("members-protections-enhancements-frontend")) {
       waitForTitle(s"$title - GOV.UK")
     } else {
-      waitForTitle(s"$title - Member Pension Enhancement (MPE) checker - GOV.UK")
+      waitForTitle(s"$title - members-protections-enhancements-frontend - GOV.UK")
     }
   }
 

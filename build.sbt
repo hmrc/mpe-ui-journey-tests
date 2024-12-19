@@ -1,4 +1,4 @@
-lazy val testSuite = (project in file("."))
+lazy val root = (project in file("."))
   .settings(
     name := "mpe-ui-journey-tests",
     version := "1.0.0",

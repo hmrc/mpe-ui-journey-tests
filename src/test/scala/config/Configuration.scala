@@ -31,7 +31,7 @@ object Configuration {
 
   }
   lazy val settings: Configuration = create()
-  val baseUrl = "members-protections-enhancements"
+  val baseUrl = "members-protections-and-enhancements"
 
   private def create(): Configuration = {
     environment match {
