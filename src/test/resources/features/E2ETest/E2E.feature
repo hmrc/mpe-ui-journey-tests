@@ -1,13 +1,13 @@
 @regression @accessibility @e2e
-Feature:As a PSA/PSP
+Feature:As a PSA
   I want to view data, submit returns and file report for pension schemes.
 
   Scenario: Enter member details and navigate to MPE Results page
     Given I have a new session
     And I fill in the auth details for enrolment PSA with value A2100001
-    Then  I should be on the "Members Protection Enhancement (MPE) checker" page
+    Then  I should be on the "Members Protection Enhancements" page
     And I click the "Start Journey" button
-    Then  I should be on the "Pension Scheme Administrator or Practicioner" page
+    Then  I should be on the "Pension Scheme Administrator or Practitioner" page
     And I click the "Administrator View" button
     Then I should be on the "MPE Start" page
     And I click the "Continue" button
