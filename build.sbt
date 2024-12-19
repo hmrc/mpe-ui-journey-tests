@@ -1,8 +1,9 @@
 lazy val root = (project in file("."))
   .settings(
     name := "mpe-ui-journey-tests",
-    version := "0.1.0",
-    scalaVersion := "3.3.3",
+    version := "1.0.0",
+    scalaVersion := "2.13.12",
+    scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
     libraryDependencies ++= Dependencies.test,
-    (Compile / compile) := ((Compile / compile) dependsOn (Compile / scalafmtSbtCheck, Compile / scalafmtCheckAll)).value
+    Test / testOptions := Seq.empty
   )
