@@ -1,9 +1,18 @@
-@acceptance @regression @wip
+@acceptance @regression
 Feature:As a PSA/PSP
-I want to login as PSA/PSP and navigate to Dashboard page.
+I want to login and navigate to Homepage.
 
-  Scenario: Enter member details and navigate to MPE Results page
+  Scenario: Login with a valid PSA User ID and navigate to Homepage
     Given I have a new session
     And I fill in the auth details for enrolment PSA with value A2100001
-#   ToDO When the URL is updated with proper Title below Step needs to be implemented
     Then I should be on the "members-protections-and-enhancements" page
+
+  Scenario: Login with a valid PSP User ID and navigate to Homepage
+    Given I have a new session
+    And I fill in the auth details for enrolment PSP with value 21000002
+    Then I should be on the "members-protections-and-enhancements" page
+
+  Scenario: Login with invalid PSA/PSP User ID and navigate to Manage Pension Schemes register page
+    Given I have a new session
+    And I fill in the auth details for enrolment PWP with value A2100001
+    Then I should be on the "Manage and register your pension schemes - Managing pension schemes" page
