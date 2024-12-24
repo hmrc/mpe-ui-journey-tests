@@ -44,6 +44,9 @@ class LoginStepDefs extends MpeSteps {
       case "PSP" =>
         setTextField(enrolment, "HMRC-PODSPP-ORG")
         setTextField(idName, "PSPID")
+      case id: String =>
+        setTextField(enrolment, "HMRC-PODS-ORG")
+        setTextField(idName, id)
       case _ =>
         Assert.fail(s"Wrong enrolment mentioned : $enrol")
     }
