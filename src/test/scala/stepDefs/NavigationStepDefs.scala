@@ -30,7 +30,7 @@ class NavigationStepDefs extends MpeSteps {
 
   When("""^I visit the "(.*?)" page$""") { page: String =>
     val url = page match {
-      case "start" => "/start"
+      case "start" => "start"
       case _ => page
     }
     go to s"${Configuration.settings.link}/${Configuration.baseUrl}/$url"
