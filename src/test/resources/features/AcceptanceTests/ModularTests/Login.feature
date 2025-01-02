@@ -1,4 +1,4 @@
-@acceptance @regression
+@regression
 Feature:As a PSA/PSP
 I want to login and navigate to Homepage.
 
