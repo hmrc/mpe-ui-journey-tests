@@ -16,3 +16,5 @@ I want to login and navigate to Homepage.
     Given I have a new session
     And I fill in the auth details for enrolment PWP with value A2100001
     Then I should be on the "Manage and register your pension schemes - Managing pension schemes" page
+
+
