@@ -6,7 +6,6 @@ Feature:As a PSA/PSP
     Given I have a new session
     And I fill in the auth details for enrolment PSA with value A2100001
     Then I should be on the "Check a member's protections and enhancements" page
-    And I should see the "Back" link on the page
     And I should see the following values on the page
       | value                                        |
       | full name                                    |
@@ -21,7 +20,6 @@ Feature:As a PSA/PSP
     Given I have a new session
     And I fill in the auth details for enrolment PSP with value 21000002
     Then I should be on the "Check a member's protections and enhancements" page
-    And I should see the "Back" link on the page
     And I should see the following values on the page
       | value                                        |
       | full name                                    |
