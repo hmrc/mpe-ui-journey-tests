@@ -1,5 +1,5 @@
 @regression
-Feature:As a PSA/PSP
+Feature:As a PSA/PSP User
 I want to login and navigate to Homepage.
 
 

@@ -1,5 +1,5 @@
 @acceptance @regression
-Feature:As a PSA/PSP
+Feature:As a PSA/PSP User
   I want to login and navigate to Start Page
 
   Scenario: Login with a valid PSA User ID and navigate to Homepage

@@ -1,5 +1,5 @@
 @acceptance @regression
-Feature:As a PSA/PSP
+Feature:As a PSA/PSP User
   I want to login and navigate to Member's Name Page
 
   Scenario Outline: Happy Path Journey - Navigate to Member's Name Page and enter valid First and Last Name
