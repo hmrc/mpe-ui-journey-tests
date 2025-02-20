@@ -14,7 +14,7 @@ Feature:As a PSA/PSP
       | pension scheme administrator check reference |
     And I should see the "Start now" link on the page
     When I click the "Start now" link
-    Then I should be on the "Member name" page
+    Then I should be on the "What is the member's name?" page
 
   Scenario: Login with a valid PSP User ID and navigate to Homepage
     Given I have a new session
@@ -28,5 +28,5 @@ Feature:As a PSA/PSP
       | pension scheme administrator check reference |
     And I should see the "Start now" link on the page
     When I click the "Start now" link
-    Then I should be on the "Member name" page
+    Then I should be on the "What is the member's name?" page
 
