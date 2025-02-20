@@ -4,7 +4,7 @@ Feature:As a PSA/PSP
 
   Scenario Outline: Happy Path Journey - Navigate to Member's Name Page and enter valid First and Last Name
     Given I have a new session
-    And I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
+    When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "Check a member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
@@ -18,7 +18,7 @@ Feature:As a PSA/PSP
 
   Scenario Outline: Happy Path Journey - Navigate to Member's Name Page and click on 'Back' button
     Given I have a new session
-    And I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
+    When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "Check a member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
@@ -34,7 +34,7 @@ Feature:As a PSA/PSP
 
   Scenario Outline: Happy Path Journey - Navigate to Member's DOB Page and click on 'Back' button
     Given I have a new session
-    And I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
+    When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "Check a member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
@@ -53,7 +53,7 @@ Feature:As a PSA/PSP
 
   Scenario Outline: Unhappy path journey's for Member's Name Page for a valid PSA User
     Given I have a new session
-    And I fill in the auth details for enrolment PSA with value A2100001
+    When I fill in the auth details for enrolment PSA with value A2100001
     Then I should be on the "Check a member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
@@ -77,7 +77,7 @@ Feature:As a PSA/PSP
 
   Scenario Outline: Unhappy path journey's for Member's Name Page for a valid PSP User
     Given I have a new session
-    And I fill in the auth details for enrolment PSP with value 2100002
+    When I fill in the auth details for enrolment PSP with value 2100002
     Then I should be on the "Check a member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
