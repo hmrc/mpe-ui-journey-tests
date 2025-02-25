@@ -37,7 +37,7 @@ class NavigationStepDefs extends MpeSteps {
   }
 
   When("""^I click the "(.*)" link$""") { link: String =>
-    if (link.contains("View contributions and earnings")) {
+    if (link.contains("Back")) {
       val js = driver.asInstanceOf[JavascriptExecutor]
       js.executeScript("window.scrollBy(0,1000)")
     }
