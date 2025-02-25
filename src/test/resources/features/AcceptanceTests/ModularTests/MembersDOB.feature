@@ -12,8 +12,8 @@ Feature:As a PSA/PSP User
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
     Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
-    When I fill in the "date.day" field with "05"
-    And I fill in the "date.month" field with "12"
+    When I fill in the "date.day" field with "5"
+    And I fill in the "date.month" field with "1"
     And I fill in the "date.year" field with "1987"
     And I click the "Continue" button
     Then I should be on the "Members National Insurance number" page
