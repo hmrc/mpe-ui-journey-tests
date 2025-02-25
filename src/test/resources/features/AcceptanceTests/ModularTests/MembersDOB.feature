@@ -8,11 +8,11 @@ Feature:As a PSA/PSP User
     Then I should be on the "Check a member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
-    And I fill in the "firstName" field with "Pearl"
+    When I fill in the "firstName" field with "Pearl"
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
     Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
-    And I fill in the "date.day" field with "05"
+    When I fill in the "date.day" field with "05"
     And I fill in the "date.month" field with "12"
     And I fill in the "date.year" field with "1987"
     And I click the "Continue" button
@@ -29,11 +29,11 @@ Feature:As a PSA/PSP User
     Then I should be on the "Check a member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
-    And I fill in the "firstName" field with "Pearl"
+    When I fill in the "firstName" field with "Pearl"
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
     Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
-    And I fill in the "date.day" field with "05"
+    When I fill in the "date.day" field with "05"
     And I fill in the "date.month" field with "12"
     And I fill in the "date.year" field with "1987"
     And I click the "Continue" button
@@ -52,16 +52,16 @@ Feature:As a PSA/PSP User
     Then I should be on the "Check a member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
-    And I fill in the "firstName" field with "Pearl"
+    When I fill in the "firstName" field with "Pearl"
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
     Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
-    And I fill in the "date.day" field with "<Day>"
+    When I fill in the "date.day" field with "<Day>"
     And I fill in the "date.month" field with "<Month>"
     And I fill in the "date.year" field with "<Year>"
     And I click the "Continue" button
     Then I should be on the "<page>" page
-    Then I should see "<error>" error on the page
+    And I should see "<error>" error on the page
     And  The error link should show "<error>"
     And  I click the "<error>" error link
 
@@ -80,16 +80,16 @@ Feature:As a PSA/PSP User
     Then I should be on the "Check a member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
-    And I fill in the "firstName" field with "Pearl"
+    When I fill in the "firstName" field with "Pearl"
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
     Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
-    And   I fill in the "date.day" field with "<Day>"
+    When   I fill in the "date.day" field with "<Day>"
     And   I fill in the "date.month" field with "<Month>"
     And   I fill in the "date.year" field with "<Year>"
     And I click the "Continue" button
     Then I should be on the "<page>" page
-    Then I should see "<error>" error on the page
+    And I should see "<error>" error on the page
     And  The error link should show "<error>"
     And  I click the "<error>" error link
 
@@ -102,4 +102,3 @@ Feature:As a PSA/PSP User
       | 27  |       | 2007 | Error: What is the Pearl Turner Harvey's date of birth? | Enter a month of birth                                    |
       | 27  | 03    |      | Error: What is the Pearl Turner Harvey's date of birth? | Enter a year of birth                                     |
       | 27  | 03    | 2099 | Error: What is the Pearl Turner Harvey's date of birth? | The date of birth must be before today                    |
-    
