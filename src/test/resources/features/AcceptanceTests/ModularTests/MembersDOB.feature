@@ -12,9 +12,9 @@ Feature:As a PSA/PSP User
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
     Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
-    When I fill in the "date.day" field with "5"
-    And I fill in the "date.month" field with "1"
-    And I fill in the "date.year" field with "1987"
+    When I fill in the "dateOfBirth.day" field with "5"
+    And I fill in the "dateOfBirth.month" field with "1"
+    And I fill in the "dateOfBirth.year" field with "1987"
     And I click the "Continue" button
     Then I should be on the "Members National Insurance number" page
 
@@ -33,9 +33,9 @@ Feature:As a PSA/PSP User
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
     Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
-    When I fill in the "date.day" field with "05"
-    And I fill in the "date.month" field with "12"
-    And I fill in the "date.year" field with "1987"
+    When I fill in the "dateOfBirth.day" field with "05"
+    And I fill in the "dateOfBirth.month" field with "12"
+    And I fill in the "dateOfBirth.year" field with "1987"
     And I click the "Continue" button
     Then I should be on the "Members National Insurance number" page
     When I click the "Back" link
@@ -56,9 +56,9 @@ Feature:As a PSA/PSP User
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
     Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
-    When I fill in the "date.day" field with "<Day>"
-    And I fill in the "date.month" field with "<Month>"
-    And I fill in the "date.year" field with "<Year>"
+    When I fill in the "dateOfBirth.day" field with "<Day>"
+    And I fill in the "dateOfBirth.month" field with "<Month>"
+    And I fill in the "dateOfBirth.year" field with "<Year>"
     And I click the "Continue" button
     Then I should be on the "<page>" page
     And I should see "<error>" error on the page
@@ -84,9 +84,9 @@ Feature:As a PSA/PSP User
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
     Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
-    When   I fill in the "date.day" field with "<Day>"
-    And   I fill in the "date.month" field with "<Month>"
-    And   I fill in the "date.year" field with "<Year>"
+    When   I fill in the "dateOfBirth.day" field with "<Day>"
+    And   I fill in the "dateOfBirth.month" field with "<Month>"
+    And   I fill in the "dateOfBirth.year" field with "<Year>"
     And I click the "Continue" button
     Then I should be on the "<page>" page
     And I should see "<error>" error on the page
