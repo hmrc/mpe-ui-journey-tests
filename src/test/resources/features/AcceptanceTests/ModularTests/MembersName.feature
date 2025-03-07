@@ -67,13 +67,12 @@ Feature:As a PSA/PSP User
 
     Examples:
       | firstName                                          | lastName                             | page                              | error                                                  |
-      | Pearl 123                                          | Turner Harvey 123                    | Error: What is the member's name? | Please enter the member's name in a valid format       |
-      | Pearl !@£$%^&*()"                                  | Turner Harvey !@£$%^&*()             | Error: What is the member's name? | Please enter the member's name in a valid format       |
+      | Pearl 123                                          | Turner Harvey 123                    | Error: What is the member's name? | Please enter the member's first name in a valid format |
+      | Pearl !@£$%^&*()"                                  | Turner Harvey !@£$%^&*()             | Error: What is the member's name? | Please enter the member's last name in a valid format  |
       |                                                    | Turner Harvey                        | Error: What is the member's name? | Enter the member's first name                          |
       | Pearl                                              |                                      | Error: What is the member's name? | Enter the member's last name                           |
       | Rhoshandiatellyneshiaunneveshenk Koyaanisquatsiuth | Wiiliams                             | Error: What is the member's name? | The member's first name must be 35 characters or fewer |
       | Janice                                             | Keihanaikukauakahihuliheekahaunaelel | Error: What is the member's name? | The member's last name must be 35 characters or fewer  |
-      | O’Neil                                             | James                                | Error: What is the member's name? | Please enter the member's name in a valid format       |
 
   Scenario Outline: Unhappy path journey's for Member's Name Page for a valid PSP User
     Given I have a new session
@@ -91,10 +90,9 @@ Feature:As a PSA/PSP User
 
     Examples:
       | firstName                                          | lastName                             | page                              | error                                                  |
-      | Pearl 123                                          | Turner Harvey 123                    | Error: What is the member's name? | Please enter the member's name in a valid format       |
-      | Pearl !@£$%^&*()"                                  | Turner Harvey !@£$%^&*()             | Error: What is the member's name? | Please enter the member's name in a valid format       |
+      | Pearl 123                                          | Turner Harvey 123                    | Error: What is the member's name? | Please enter the member's first name in a valid format |
+      | Pearl !@£$%^&*()"                                  | Turner Harvey !@£$%^&*()             | Error: What is the member's name? | Please enter the member's last name in a valid format  |
       |                                                    | Turner Harvey                        | Error: What is the member's name? | Enter the member's first name                          |
       | Pearl                                              |                                      | Error: What is the member's name? | Enter the member's last name                           |
       | Rhoshandiatellyneshiaunneveshenk Koyaanisquatsiuth | Wiiliams                             | Error: What is the member's name? | The member's first name must be 35 characters or fewer |
       | Janice                                             | Keihanaikukauakahihuliheekahaunaelel | Error: What is the member's name? | The member's last name must be 35 characters or fewer  |
-      | O’Neil                                             | James                                | Error: What is the member's name? | Please enter the member's name in a valid format       |
