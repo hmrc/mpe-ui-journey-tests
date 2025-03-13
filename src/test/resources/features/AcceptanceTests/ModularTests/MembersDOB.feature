@@ -11,12 +11,12 @@ Feature:As a PSA/PSP User
     When I fill in the "firstName" field with "Pearl"
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
-    Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
+    Then I should be on the "What is Pearl Turner Harvey's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "5"
     And I fill in the "dateOfBirth.month" field with "1"
     And I fill in the "dateOfBirth.year" field with "1987"
     And I click the "Continue" button
-    Then I should be on the "What is the Pearl Turner Harvey's National Insurance number?" page
+    Then I should be on the "What is Pearl Turner Harvey's National Insurance number?" page
 
     Examples:
       | enrolmentID | enrolmentValue |
@@ -32,14 +32,14 @@ Feature:As a PSA/PSP User
     When I fill in the "firstName" field with "Pearl"
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
-    Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
+    Then I should be on the "What is Pearl Turner Harvey's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "05"
     And I fill in the "dateOfBirth.month" field with "12"
     And I fill in the "dateOfBirth.year" field with "1987"
     And I click the "Continue" button
-    Then I should be on the "What is the Pearl Turner Harvey's National Insurance number?" page
+    Then I should be on the "What is Pearl Turner Harvey's National Insurance number?" page
     When I click the "Back" link
-    Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
+    Then I should be on the "What is Pearl Turner Harvey's date of birth?" page
 
     Examples:
       | enrolmentID | enrolmentValue |
@@ -55,7 +55,7 @@ Feature:As a PSA/PSP User
     When I fill in the "firstName" field with "Pearl"
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
-    Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
+    Then I should be on the "What is Pearl Turner Harvey's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "<Day>"
     And I fill in the "dateOfBirth.month" field with "<Month>"
     And I fill in the "dateOfBirth.year" field with "<Year>"
@@ -66,15 +66,15 @@ Feature:As a PSA/PSP User
     And  I click the "<error>" error link
 
     Examples:
-      | Day | Month | Year | page                                                    | error                                                                 |
-      | abc | 03    | 2007 | Error: What is the Pearl Turner Harvey's date of birth? | Enter a valid day. A day should be in between 1 to 31                 |
-      | 27  | abc   | 2007 | Error: What is the Pearl Turner Harvey's date of birth? | Enter a valid month. A month should be in between 1 to 12             |
-      | 27  | 03    | abc  | Error: What is the Pearl Turner Harvey's date of birth? | Enter a valid year. A year should be in between 1900 and current year |
-      |     | 03    | 2007 | Error: What is the Pearl Turner Harvey's date of birth? | Enter a day of birth                                                  |
-      | 27  |       | 2007 | Error: What is the Pearl Turner Harvey's date of birth? | Enter a month of birth                                                |
-      | 27  | 03    |      | Error: What is the Pearl Turner Harvey's date of birth? | Enter a year of birth                                                 |
-      | 27  | 03    | 2099 | Error: What is the Pearl Turner Harvey's date of birth? | Enter a valid year. A year should be in between 1900 and current year |
-      | 1   | 1     | 1899 | Error: What is the Pearl Turner Harvey's date of birth? | Enter a valid year. A year should be in between 1900 and current year |
+      | Day | Month | Year | page                                                | error                                                                 |
+      | abc | 03    | 2007 | Error: What is Pearl Turner Harvey's date of birth? | Enter a valid day. A day should be in between 1 to 31                 |
+      | 27  | abc   | 2007 | Error: What is Pearl Turner Harvey's date of birth? | Enter a valid month. A month should be in between 1 to 12             |
+      | 27  | 03    | abc  | Error: What is Pearl Turner Harvey's date of birth? | Enter a valid year. A year should be in between 1900 and current year |
+      |     | 03    | 2007 | Error: What is Pearl Turner Harvey's date of birth? | Enter a day of birth                                                  |
+      | 27  |       | 2007 | Error: What is Pearl Turner Harvey's date of birth? | Enter a month of birth                                                |
+      | 27  | 03    |      | Error: What is Pearl Turner Harvey's date of birth? | Enter a year of birth                                                 |
+      | 27  | 03    | 2099 | Error: What is Pearl Turner Harvey's date of birth? | Enter a valid year. A year should be in between 1900 and current year |
+      | 1   | 1     | 1899 | Error: What is Pearl Turner Harvey's date of birth? | Enter a valid year. A year should be in between 1900 and current year |
 
   Scenario Outline: Unhappy path journey's for Member's Date Of Birth Page for a valid PSP User
     Given I have a new session
@@ -85,7 +85,7 @@ Feature:As a PSA/PSP User
     When I fill in the "firstName" field with "Pearl"
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
-    Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
+    Then I should be on the "What is Pearl Turner Harvey's date of birth?" page
     When   I fill in the "dateOfBirth.day" field with "<Day>"
     And   I fill in the "dateOfBirth.month" field with "<Month>"
     And   I fill in the "dateOfBirth.year" field with "<Year>"
@@ -96,12 +96,12 @@ Feature:As a PSA/PSP User
     And  I click the "<error>" error link
 
     Examples:
-      | Day | Month | Year | page                                                    | error                                                                 |
-      | abc | 03    | 2007 | Error: What is the Pearl Turner Harvey's date of birth? | Enter a valid day. A day should be in between 1 to 31                 |
-      | 27  | abc   | 2007 | Error: What is the Pearl Turner Harvey's date of birth? | Enter a valid month. A month should be in between 1 to 12             |
-      | 27  | 03    | abc  | Error: What is the Pearl Turner Harvey's date of birth? | Enter a valid year. A year should be in between 1900 and current year |
-      |     | 03    | 2007 | Error: What is the Pearl Turner Harvey's date of birth? | Enter a day of birth                                                  |
-      | 27  |       | 2007 | Error: What is the Pearl Turner Harvey's date of birth? | Enter a month of birth                                                |
-      | 27  | 03    |      | Error: What is the Pearl Turner Harvey's date of birth? | Enter a year of birth                                                 |
-      | 27  | 03    | 2099 | Error: What is the Pearl Turner Harvey's date of birth? | Enter a valid year. A year should be in between 1900 and current year |
-      | 1   | 1     | 1899 | Error: What is the Pearl Turner Harvey's date of birth? | Enter a valid year. A year should be in between 1900 and current year |
+      | Day | Month | Year | page                                                | error                                                                 |
+      | abc | 03    | 2007 | Error: What is Pearl Turner Harvey's date of birth? | Enter a valid day. A day should be in between 1 to 31                 |
+      | 27  | abc   | 2007 | Error: What is Pearl Turner Harvey's date of birth? | Enter a valid month. A month should be in between 1 to 12             |
+      | 27  | 03    | abc  | Error: What is Pearl Turner Harvey's date of birth? | Enter a valid year. A year should be in between 1900 and current year |
+      |     | 03    | 2007 | Error: What is Pearl Turner Harvey's date of birth? | Enter a day of birth                                                  |
+      | 27  |       | 2007 | Error: What is Pearl Turner Harvey's date of birth? | Enter a month of birth                                                |
+      | 27  | 03    |      | Error: What is Pearl Turner Harvey's date of birth? | Enter a year of birth                                                 |
+      | 27  | 03    | 2099 | Error: What is Pearl Turner Harvey's date of birth? | Enter a valid year. A year should be in between 1900 and current year |
+      | 1   | 1     | 1899 | Error: What is Pearl Turner Harvey's date of birth? | Enter a valid year. A year should be in between 1900 and current year |

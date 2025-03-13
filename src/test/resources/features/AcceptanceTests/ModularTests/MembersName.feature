@@ -25,7 +25,7 @@ Feature:As a PSA/PSP User
     And I fill in the "firstName" field with "Pearl"
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
-    Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
+    Then I should be on the "What is Pearl Turner Harvey's date of birth?" page
 
     Examples:
       | enrolmentID | enrolmentValue |
@@ -41,7 +41,7 @@ Feature:As a PSA/PSP User
     And I fill in the "firstName" field with "Pearl"
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
-    Then I should be on the "What is the Pearl Turner Harvey's date of birth?" page
+    Then I should be on the "What is Pearl Turner Harvey's date of birth?" page
     And I click the "Back" link
     Then I should be on the "What is the member's name?" page
 
