@@ -22,7 +22,7 @@ Feature:As a PSA/PSP User
     Then I should be on the "What is Pearl Turner Harvey's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA12345678A"
     And I click the "Continue" button
-    Then I should be on the "Check your answers" page
+    Then I should be on the "Check Pearl Turner Harvey's details" page
 
     Examples:
       | enrolmentID | enrolmentValue |
@@ -50,7 +50,7 @@ Feature:As a PSA/PSP User
     Then I should be on the "What is Pearl Turner Harvey's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with " P S A 1 2 3 4 5 6 7 8 A "
     And I click the "Continue" button
-    Then I should be on the "Check your answers" page
+    Then I should be on the "Check Pearl Turner Harvey's details" page
 
     Examples:
       | enrolmentID | enrolmentValue |
@@ -77,7 +77,7 @@ Feature:As a PSA/PSP User
     Then I should be on the "What is Pearl Turner Harvey's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA12345678A"
     And I click the "Continue" button
-    Then I should be on the "Check your answers" page
+    Then I should be on the "Check Pearl Turner Harvey's details" page
     When I click the "Back" link
     Then I should be on the "What is Pearl Turner Harvey's pension scheme administrator check reference?" page
 
