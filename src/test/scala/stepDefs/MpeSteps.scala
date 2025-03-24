@@ -128,6 +128,7 @@ trait MpeSteps
       case "Date of birth"                                 => "change-dob"
       case "National Insurance number"                     => "change-nino"
       case "Pension scheme administrator check reference"  => "change-pensionSchemeAdminCheckRef"
+      case _ => throw new IllegalArgumentException( s"$link not present")
     }
     find(By.id(id)).click()
   }
