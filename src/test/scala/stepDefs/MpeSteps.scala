@@ -121,58 +121,15 @@ trait MpeSteps
     if (loop > timeout) Assert.fail(s"Unable to validate the text on the page : $text")
   }
 
-  def calculationTypeSelect(button: String): Unit = {
-    val id = button match {
-      case "GMP payable age"              => "calcType"
-      case "State Pension age"            => "calcType-2"
-      case "Survivor"                     => "calcType-3"
-      case "Leaving"                      => "calcType-4"
-      case "GMP value on a specific date" => "calcType-5"
+  def clickOnChangeLink(link: String): Unit = {
+    val id = link match {
+      case "First name"                                    => "change-first-name"
+      case "Last name"                                     => "change-last-name"
+      case "Date of birth"                                 => "change-dob"
+      case "National Insurance number"                     => "change-nino"
+      case "Pension scheme administrator check reference"  => "change-pensionSchemeAdminCheckRef"
+      case _ => throw new IllegalArgumentException( s"$link not present")
     }
     find(By.id(id)).click()
   }
-
-  def hasMemberLeftSelect(button: String): Unit = {
-    val id = button match {
-      case "No, member is still in the scheme" => "leaving"
-      case "Yes, before 6 April 2016"          => "leaving-2"
-      case "Yes, on or after 6 April 2016"     => "leaving-3"
-    }
-    find(By.id(id)).click()
-  }
-
-  def revalRateSelect(button: String): Unit = {
-    val id = button match {
-      case "Fixed rate"        => "rateType"
-      case "HMRC's rate"       => "rateType-2"
-      case "Limited rate"      => "rateType-3"
-      case "S148 or full rate" => "rateType-4"
-    }
-    find(By.id(id)).click()
-  }
-
-  def genderCalcSelect(button: String): Unit = {
-    val id = button match {
-      case "Yes" => "equalise"
-      case "No"  => "equalise-2"
-    }
-    find(By.id(id)).click()
-  }
-
-  def leftBeforeApril2016Select(button: String): Unit = {
-    val id = button match {
-      case "Yes" => "leaving"
-      case "No"  => "leaving-2"
-    }
-    find(By.id(id)).click()
-  }
-
-  def dateAfterDeathSelect(button: String): Unit = {
-    val id = button match {
-      case "Yes" => "revaluation-date"
-      case "No"  => "none"
-    }
-    find(By.id(id)).click()
-  }
-
 }

@@ -16,8 +16,9 @@
 
 package stepDefs
 
+import com.vladsch.flexmark.parser.core.delimiter.Bracket.link
 import config.Configuration
-import org.openqa.selenium.JavascriptExecutor
+import org.openqa.selenium.{By, JavascriptExecutor}
 
 class NavigationStepDefs extends MpeSteps {
   val environmentProperty: String = System.getProperty("environment", "local")
@@ -44,6 +45,10 @@ class NavigationStepDefs extends MpeSteps {
     clickOnLink(LinkTextQuery(link))
   }
 
+  When("""^I click on the Change link for "(.*)"$""") { ( link: String) =>
+    clickOnChangeLink(link)
+  }
+
   When("""^I click the "(.*)" button$""") { button: String =>
     clickOnLink(XPathQuery(s"//button[contains(text(),'$button')]"))
   }
@@ -54,18 +59,6 @@ class NavigationStepDefs extends MpeSteps {
 
   When("""^I click "(.*)" link""") { id: String =>
     clickOnLink(className(id))
-  }
-
-  When("""I select the "(.*)" radio button on the "(.*)" page$""") { (button: String, page: String) =>
-    page match {
-      case "What type of calculation do you need?"            => calculationTypeSelect(button)
-      case "Has the member left the scheme?"                  => hasMemberLeftSelect(button)
-      case "Had the member already left the scheme at date of death?" => hasMemberLeftSelect(button)
-      case "What revaluation rate do you want HMRC to use?"   => revalRateSelect(button)
-      case "Do you also want an opposite gender calculation?" => genderCalcSelect(button)
-      case "Did the member leave the scheme before 6 April 2016?" => leftBeforeApril2016Select(button)
-      case "Would you like a calculation for a date after the date of death?" => dateAfterDeathSelect(button)
-    }
   }
 
   When("""^I click the "(.*)" checkbox$""") { box: String =>

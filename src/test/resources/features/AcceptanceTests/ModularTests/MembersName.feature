@@ -94,5 +94,5 @@ Feature:As a PSA/PSP User
       | Pearl !@£$%^&*()"                                  | Turner Harvey !@£$%^&*()             | Error: What is the member's name? | Please enter the member's last name in a valid format  |
       |                                                    | Turner Harvey                        | Error: What is the member's name? | Enter the member's first name                          |
       | Pearl                                              |                                      | Error: What is the member's name? | Enter the member's last name                           |
-      | Rhoshandiatellyneshiaunneveshenk Koyaanisquatsiuth | Wiiliams                             | Error: What is the member's name? | The member's first name must be 35 characters or fewer |
+      | Rhoshandiatellyneshiaunneveshenk Koyaanisquatsiuth | Williams                             | Error: What is the member's name? | The member's first name must be 35 characters or fewer |
       | Janice                                             | Keihanaikukauakahihuliheekahaunaelel | Error: What is the member's name? | The member's last name must be 35 characters or fewer  |
