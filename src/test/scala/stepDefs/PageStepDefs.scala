@@ -130,8 +130,8 @@ class PageStepDefs extends MpeSteps {
     pageSource should include(text)
   }
 
-  Then("""^I should see "(.*)" on the page$""") { text: String =>
-    getElementText(TagNameQuery("body")) should include(text)
+  Then("""^I should see hint text "(.*)" on the page$""") { text: String =>
+    pageSource should include(text)
   }
 
   And("""^I assert the value of "(.*)" is "(.*)"$""") { (field: String, value: String) =>

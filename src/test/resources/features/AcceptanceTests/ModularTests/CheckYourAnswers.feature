@@ -20,16 +20,16 @@ Feature:As a PSA/PSP User
     When I fill in the "nino" field with "QQ123456C"
     And I click the "Continue" button
     Then I should be on the "What is Pearl Turner Harvey's pension scheme administrator check reference?" page
-    And I fill in the "psaCheckRef" field with "PSA12345678A"
+    And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 A"
     And I click the "Continue" button
     Then I should be on the "Check Pearl Turner Harvey's details" page
     And I should see the following values on the page
-      | value           |
-      | Pearl           |
-      | Turner Harvey   |
-      | 05 January 1987 |
-      | QQ 12 34 56 C   |
-      | PSA12345678A    |
+      | value             |
+      | Pearl             |
+      | Turner Harvey     |
+      | 05 January 1987   |
+      | QQ 12 34 56 C     |
+      | PSA 12 34 56 78 A |
     When I click the "Accept and submit" link
     Then I should be on the "Results" page
 
@@ -65,12 +65,12 @@ Feature:As a PSA/PSP User
     And I click the "Continue" button
     Then I should be on the "Check David Turner Harvey's details" page
     And I should see the following values on the page
-      | value           |
-      | David           |
-      | Turner Harvey   |
-      | 05 January 1987 |
-      | QQ 12 34 56 C   |
-      | PSA12345678A    |
+      | value             |
+      | David             |
+      | Turner Harvey     |
+      | 05 January 1987   |
+      | QQ 12 34 56 C     |
+      | PSA 12 34 56 78 A |
 
     Examples:
       | enrolmentID | enrolmentValue |
@@ -104,12 +104,12 @@ Feature:As a PSA/PSP User
     And I click the "Continue" button
     Then I should be on the "Check Pearl Williams's details" page
     And I should see the following values on the page
-      | value           |
-      | Pearl           |
-      | Williams        |
-      | 05 January 1987 |
-      | QQ 12 34 56 C   |
-      | PSA12345678A    |
+      | value             |
+      | Pearl             |
+      | Williams          |
+      | 05 January 1987   |
+      | QQ 12 34 56 C     |
+      | PSA 12 34 56 78 A |
 
     Examples:
       | enrolmentID | enrolmentValue |
@@ -145,12 +145,12 @@ Feature:As a PSA/PSP User
     And I click the "Continue" button
     Then I should be on the "Check Pearl Turner Harvey's details" page
     And I should see the following values on the page
-      | value            |
-      | Pearl                |
-      | Turner Harvey    |
-      | 02 December 1939 |
-      | QQ 12 34 56 C    |
-      | PSA12345678A     |
+      | value             |
+      | Pearl             |
+      | Turner Harvey     |
+      | 02 December 1939  |
+      | QQ 12 34 56 C     |
+      | PSA 12 34 56 78 A |
 
     Examples:
       | enrolmentID | enrolmentValue |
@@ -184,12 +184,12 @@ Feature:As a PSA/PSP User
     And I click the "Continue" button
     Then I should be on the "Check Pearl Turner Harvey's details" page
     And I should see the following values on the page
-      | value           |
-      | Pearl           |
-      | Turner Harvey   |
-      | 05 January 1987 |
-      | 11 a1 11 11     |
-      | PSA12345678A    |
+      | value             |
+      | Pearl             |
+      | Turner Harvey     |
+      | 05 January 1987   |
+      | 11 a1 11 11       |
+      | PSA 12 34 56 78 A |
 
     Examples:
       | enrolmentID | enrolmentValue |
@@ -223,12 +223,12 @@ Feature:As a PSA/PSP User
     And I click the "Continue" button
     Then I should be on the "Check Pearl Turner Harvey's details" page
     And I should see the following values on the page
-      | value           |
-      | Pearl           |
-      | Turner Harvey   |
-      | 05 January 1987 |
-      | QQ 12 34 56 C   |
-      | PSA87654321B    |
+      | value             |
+      | Pearl             |
+      | Turner Harvey     |
+      | 05 January 1987   |
+      | QQ 12 34 56 C     |
+      | PSA 87 65 43 21 B |
 
     Examples:
       | enrolmentID | enrolmentValue |

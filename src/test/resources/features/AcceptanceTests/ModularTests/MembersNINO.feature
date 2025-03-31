@@ -2,6 +2,7 @@
 Feature:As a PSA/PSP User
   I want to login and navigate to Member's National Insurance Number Page
 
+ @wip
   Scenario Outline: Happy Path Journey - Navigate to Member's NINO Page and enter valid NINO number without Blanks
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
@@ -17,6 +18,7 @@ Feature:As a PSA/PSP User
     And I fill in the "dateOfBirth.year" field with "1987"
     And I click the "Continue" button
     Then I should be on the "What is Pearl Turner Harvey's National Insurance number?" page
+    And I should see hint text "For example, QQ 12 34 56 C" on the page
     When I fill in the "nino" field with "QQ123456C"
     And I click the "Continue" button
     Then I should be on the "What is Pearl Turner Harvey's pension scheme administrator check reference?" page
@@ -147,11 +149,14 @@ Feature:As a PSA/PSP User
     And  I click the "<error>" error link
 
     Examples:
-      | ninoNumber    | page                                                            | error                                                                 |
-      | QQ123456      | Error: What is Pearl Turner Harvey's National Insurance number? | Please enter the member's National Insurance number in a valid format |
-      | 12345678      | Error: What is Pearl Turner Harvey's National Insurance number? | Please enter the member's National Insurance number in a valid format |
-      | 12 QQ 34 56 C | Error: What is Pearl Turner Harvey's National Insurance number? | Please enter the member's National Insurance number in a valid format |
-      |               | Error: What is Pearl Turner Harvey's National Insurance number? | Enter a National Insurance number                                     |
+      | ninoNumber    | page                                                            | error                                                          |
+      | QQ123456      | Error: What is Pearl Turner Harvey's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | 12345678      | Error: What is Pearl Turner Harvey's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | 12 QQ 34 56 C | Error: What is Pearl Turner Harvey's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | a111111       | Error: What is Pearl Turner Harvey's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | 111111a       | Error: What is Pearl Turner Harvey's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | 1111a11       | Error: What is Pearl Turner Harvey's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      |               | Error: What is Pearl Turner Harvey's National Insurance number? | Enter a National Insurance number                              |
 
   Scenario Outline: Unhappy path journey's for Member's NINO Page for a valid PSP User
     Given I have a new session
@@ -176,11 +181,11 @@ Feature:As a PSA/PSP User
     And  I click the "<error>" error link
 
     Examples:
-      | ninoNumber    | page                                                            | error                                                                 |
-      | QQ123456      | Error: What is Pearl Turner Harvey's National Insurance number? | Please enter the member's National Insurance number in a valid format |
-      | 12345678      | Error: What is Pearl Turner Harvey's National Insurance number? | Please enter the member's National Insurance number in a valid format |
-      | 12 QQ 34 56 C | Error: What is Pearl Turner Harvey's National Insurance number? | Please enter the member's National Insurance number in a valid format |
-      | a111111       | Error: What is Pearl Turner Harvey's National Insurance number? | Please enter the member's National Insurance number in a valid format |
-      | 111111a       | Error: What is Pearl Turner Harvey's National Insurance number? | Please enter the member's National Insurance number in a valid format |
-      | 1111a11       | Error: What is Pearl Turner Harvey's National Insurance number? | Please enter the member's National Insurance number in a valid format |
-      |               | Error: What is Pearl Turner Harvey's National Insurance number? | Enter a National Insurance number                                     |
+      | ninoNumber    | page                                                            | error                                                          |
+      | QQ123456      | Error: What is Pearl Turner Harvey's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | 12345678      | Error: What is Pearl Turner Harvey's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | 12 QQ 34 56 C | Error: What is Pearl Turner Harvey's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | a111111       | Error: What is Pearl Turner Harvey's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | 111111a       | Error: What is Pearl Turner Harvey's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | 1111a11       | Error: What is Pearl Turner Harvey's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      |               | Error: What is Pearl Turner Harvey's National Insurance number? | Enter a National Insurance number                              |

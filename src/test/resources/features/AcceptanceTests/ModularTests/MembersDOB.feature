@@ -2,6 +2,7 @@
 Feature:As a PSA/PSP User
   I want to login and navigate to Member's Date Of Birth Page
 
+@wip
   Scenario Outline: Happy Path Journey - Navigate to Member's Date Of Birth Page and enter valid Date Of Birth
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
@@ -12,6 +13,7 @@ Feature:As a PSA/PSP User
     And I fill in the "lastName" field with "Turner Harvey"
     And I click the "Continue" button
     Then I should be on the "What is Pearl Turner Harvey's date of birth?" page
+    And I should see hint text "For example, 27 03 2007" on the page
     When I fill in the "dateOfBirth.day" field with "5"
     And I fill in the "dateOfBirth.month" field with "1"
     And I fill in the "dateOfBirth.year" field with "1987"
