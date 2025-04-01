@@ -20,7 +20,8 @@ Feature:As a PSA/PSP User
     When I fill in the "nino" field with "QQ123456C"
     And I click the "Continue" button
     Then I should be on the "What is Pearl Turner Harvey's pension scheme administrator check reference?" page
-    And I fill in the "psaCheckRef" field with "PSA12345678A"
+    And I should see hint text "For example, PSA 12 34 56 78 A" on the page
+    And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 A"
     And I click the "Continue" button
     Then I should be on the "Check Pearl Turner Harvey's details" page
 
@@ -113,14 +114,14 @@ Feature:As a PSA/PSP User
 
     Examples:
       | psaCheckRef   | page                                                                               | error                                                                                    |
-      | !@£$%^&*()"   | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
+      | !@£$%^&*()"   | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format        |
       |               | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter a pension scheme administrator check reference                                     |
-      | PSA1234567A   | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
-      | PS12345678    | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
-      | PSA12345678   | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
-      | PSA1234@5678A | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
-      | PSA12345678AA | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
-      | PSA1234A      | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
+      | PSA1234567A   | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format        |
+      | PS12345678    | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format        |
+      | PSA12345678   | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format        |
+      | PSA1234@5678A | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format                                                                                         |
+      | PSA12345678AA | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
+      | PSA1234A      | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
 
 
   Scenario Outline: Unhappy path journey's for Member's PSA Check Reference Number Page for a valid PSP User
@@ -149,13 +150,13 @@ Feature:As a PSA/PSP User
     And  I click the "<error>" error link
 
     Examples:
-      | psaCheckRef   | page                                                                               | error                                                                                    |
-      | !@£$%^&*()"   | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
-      |               | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter a pension scheme administrator check reference                                     |
-      | PSA1234567A   | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
-      | PS12345678    | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
-      | PSA12345678   | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
-      | PSA1234@5678A | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
-      | PSA12345678AA | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
-      | PSA1234A      | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Please enter the member's pension scheme administrator check reference in a valid format |
+      | psaCheckRef   | page                                                                               | error                                                                             |
+      | !@£$%^&*()"   | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
+      |               | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter a pension scheme administrator check reference                              |
+      | PSA1234567A   | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
+      | PS12345678    | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
+      | PSA12345678   | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
+      | PSA1234@5678A | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
+      | PSA12345678AA | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
+      | PSA1234A      | Error: What is Pearl Turner Harvey's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
 
