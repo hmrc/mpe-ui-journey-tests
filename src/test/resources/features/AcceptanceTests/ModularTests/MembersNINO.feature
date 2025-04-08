@@ -2,7 +2,6 @@
 Feature:As a PSA/PSP User
   I want to login and navigate to Member's National Insurance Number Page
 
- @wip
   Scenario Outline: Happy Path Journey - Navigate to Member's NINO Page and enter valid NINO number without Blanks
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
