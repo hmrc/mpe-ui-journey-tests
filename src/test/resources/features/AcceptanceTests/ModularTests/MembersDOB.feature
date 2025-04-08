@@ -2,7 +2,6 @@
 Feature:As a PSA/PSP User
   I want to login and navigate to Member's Date Of Birth Page
 
-@wip
   Scenario Outline: Happy Path Journey - Navigate to Member's Date Of Birth Page and enter valid Date Of Birth
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>

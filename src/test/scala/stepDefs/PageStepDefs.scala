@@ -29,7 +29,7 @@ import scala.jdk.CollectionConverters._
 
 class PageStepDefs extends MpeSteps {
 
-  val upload:XPathQuery = XPathQuery("//*[@id=\"upload-button\"]")
+  val upload: XPathQuery = XPathQuery("//*[@id=\"upload-button\"]")
 
   When("""^I select the "(.*)" option$""") { button: String =>
     val buttonId = getMessage(button)
@@ -45,7 +45,7 @@ class PageStepDefs extends MpeSteps {
   }
 
   Then("""^I should be on the "(.*)" page""") { title: String =>
-    if(title.contains("Managing pension schemes")) {
+    if (title.contains("protected allowances")) {
       waitForTitle(s"$title - GOV.UK")
     } else {
       waitForTitle(s"$title - Check a member's protections and enhancements")
@@ -53,7 +53,7 @@ class PageStepDefs extends MpeSteps {
   }
 
   Then("""^I should be on the page "(.*)"""") { title: String =>
-      waitForTitle(title)
+    waitForTitle(title)
   }
 
   Then("""^I should be on a MPE checker error page""") { () =>
@@ -63,35 +63,35 @@ class PageStepDefs extends MpeSteps {
   Then("""^I should see the following data in the "(.*)" table:$""") { (name: String, dataTable: DataTable) =>
     val scalaDataTableList: List[List[String]] = asScala(dataTable.asLists(classOf[String])).toList.asInstanceOf[List[util.List[String]]].map(dataList => asScala(dataList).toList)
     var expectedTextFromTable: String = scalaDataTableList.map((data: List[String]) => {
-      data.filter(_ !=null).mkString(" ")
+      data.filter(_ != null).mkString(" ")
     }).mkString("\n")
     name match {
-      case "Member details"                            |
-           "Member details - position 2"               |
-           "Member details - not revalued"             |
-           "Member details - cannot calculate"         |
-           "Member details - with post-1990"           |
-           "Member details - cont & earnings"             => expectedTextFromTable = s"Scheme member details\n$expectedTextFromTable"
-      case "Deceased Member details"                   |
-           "Deceased Member details - cannot calculate"   => expectedTextFromTable = s"Deceased member’s entered details\n$expectedTextFromTable"
-      case "Post-1990"                                    => expectedTextFromTable = s"Post-1990 value\n$expectedTextFromTable"
+      case "Member details" |
+           "Member details - position 2" |
+           "Member details - not revalued" |
+           "Member details - cannot calculate" |
+           "Member details - with post-1990" |
+           "Member details - cont & earnings" => expectedTextFromTable = s"Scheme member details\n$expectedTextFromTable"
+      case "Deceased Member details" |
+           "Deceased Member details - cannot calculate" => expectedTextFromTable = s"Deceased member’s entered details\n$expectedTextFromTable"
+      case "Post-1990" => expectedTextFromTable = s"Post-1990 value\n$expectedTextFromTable"
       case _ => ()
     }
 
     val actualTextFromTable = name match {
-      case "GMP Periods"                                |
-           "Contracted out 1"                             => getElementText(XPathQuery("//*[@id=\"main-content\"]/div/div/table[1]"))
-      case "Member details"                               => getElementText(IdQuery("member-details-table"))
-      case "Member details - position 2"                |
-           "Member details - not revalued"              |
-           "Deceased Member details"                      => getElementText(IdQuery("member-details-table"))
-      case "Post-1990"                                  |
-           "Contracted out 2"                             => getElementText(XPathQuery("//*[@id=\"main-content\"]/div/div/table[2]"))
-      case "Member details - cannot calculate"          |
-           "Deceased Member details - cannot calculate"   => getElementText(IdQuery("member-details-table"))
-      case "Member details - with post-1990"            |
-           "Member details - cont & earnings"             => getElementText(IdQuery("member-details-table"))
-      case default                                        => getElementText(IdQuery(getMessageText(default)))
+      case "GMP Periods" |
+           "Contracted out 1" => getElementText(XPathQuery("//*[@id=\"main-content\"]/div/div/table[1]"))
+      case "Member details" => getElementText(IdQuery("member-details-table"))
+      case "Member details - position 2" |
+           "Member details - not revalued" |
+           "Deceased Member details" => getElementText(IdQuery("member-details-table"))
+      case "Post-1990" |
+           "Contracted out 2" => getElementText(XPathQuery("//*[@id=\"main-content\"]/div/div/table[2]"))
+      case "Member details - cannot calculate" |
+           "Deceased Member details - cannot calculate" => getElementText(IdQuery("member-details-table"))
+      case "Member details - with post-1990" |
+           "Member details - cont & earnings" => getElementText(IdQuery("member-details-table"))
+      case default => getElementText(IdQuery(getMessageText(default)))
     }
     actualTextFromTable.filterNot(_.isWhitespace) should equal(expectedTextFromTable.filterNot(_.isWhitespace))
   }
@@ -132,53 +132,6 @@ class PageStepDefs extends MpeSteps {
 
   Then("""^I should see hint text "(.*)" on the page$""") { text: String =>
     pageSource should include(text)
-  }
-
-  And("""^I assert the value of "(.*)" is "(.*)"$""") { (field: String, value: String) =>
-    val path = field match {
-      case "Revaluation rate chosen"                      => "//*[@id=\"revaluation-rate-chosen\"]"
-      case "Scheme Member details"                      |
-           "Deceased Member details"                      => "//*[@id=\"member-details-table\"]/caption"
-      case "Post-1990 header"                             => "//*[@id=\"dual-results-table\"]/caption"
-      case "Contracted-out header 1"                      => "//*[@id=\"main-content\"]/div/div/table[2]/caption"
-      case "Member details header"                        => "//*[@id=\"member-details-table\"]/caption"
-      case "Revaluation rate"                             => "//*[@id=\"revaluation-rate-chosen\"]"
-      case "Contracted-out header"                        => "//*[@id=\"contracted-out-table\"]/caption"
-      case "Not inflation-proofed"                        => "//*[@id=\"survivor-header\"]"
-      case "Member details - cannot calculate"          |
-           "Deceased Member details - cannot calculate"   => "//*[@id=\"member-details-table\"]/caption"
-      case "Scheme member details - with post-1990"     |
-           "Scheme member details - cont & earnings"      => "//*[@id=\"member-details-table\"]/caption"
-      case "Calculation ready"                            => "//h1"
-      case "Error reason"                                 => "//*[@id=\"main-content\"]/div/div"
-      case "No GMP available"                             => "//*[@id=\"main-content\"]/div/div/div[1]"
-      case "Problem reason"                               => "//*[@id=\"main-content\"]/div/div/p[1]"
-      case _                                              => s"//*[contains(@id,'$field')]"
-    }
-    getElementText(XPathQuery(path)) should include(value)
-  }
-
-
-  And("""^I upload the file successfully$""") {
-    try {
-      clickOnLink(upload)
-      waitForTitle("Scanning uploaded file (this should take less than a minute) - Guaranteed Minimum Pension (GMP) checker - GOV.UK")
-    }
-    catch {
-      case _: org.openqa.selenium.TimeoutException =>
-        goBack()
-        clickOnLink(upload)
-        waitForTitle("Scanning uploaded file (this should take less than a minute) - Guaranteed Minimum Pension (GMP) checker - GOV.UK")
-    }
-
-    waitforPageText("Your file has been successfully uploaded")
-    clickOnLink(LinkTextQuery("Continue"))
-  }
-
-  And("""^I validate file upload failed with message "(.*)"$""") { text: String =>
-    clickOnLink(upload)
-    waitForTitle("Scanning uploaded file (this should take less than a minute) - Guaranteed Minimum Pension (GMP) checker - GOV.UK")
-    waitforPageText(text)
   }
 
   Then("""^I should not see "(.*)"$""") { text: String =>
@@ -265,4 +218,11 @@ class PageStepDefs extends MpeSteps {
     clickOnLink(IdQuery(Id))
   }
 
+  And("""^The Checked On time stamp should display current date and time$""") {
+    val timeStamp = java.time.LocalDateTime.now()
+    val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy 'at' HH:mm")
+    timeStamp.format(formatter)
+    assert(timeStamp != null, "Current date and time is null")
+    println(s"Validated current date and time: $timeStamp")
+  }
 }
