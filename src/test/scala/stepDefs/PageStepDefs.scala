@@ -20,11 +20,7 @@ import config.MessageReader._
 import io.cucumber.datatable.DataTable
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.{By, JavascriptExecutor, NoSuchElementException}
-import play.libs.Scala.asScala
-
-import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.util
 import scala.jdk.CollectionConverters._
 
 class PageStepDefs extends MpeSteps {
@@ -58,59 +54,6 @@ class PageStepDefs extends MpeSteps {
 
   Then("""^I should be on a MPE checker error page""") { () =>
     isGmpCheckerErrorPage should equal(true)
-  }
-
-  Then("""^I should see the following data in the "(.*)" table:$""") { (name: String, dataTable: DataTable) =>
-    val scalaDataTableList: List[List[String]] = asScala(dataTable.asLists(classOf[String])).toList.asInstanceOf[List[util.List[String]]].map(dataList => asScala(dataList).toList)
-    var expectedTextFromTable: String = scalaDataTableList.map((data: List[String]) => {
-      data.filter(_ != null).mkString(" ")
-    }).mkString("\n")
-    name match {
-      case "Member details" |
-           "Member details - position 2" |
-           "Member details - not revalued" |
-           "Member details - cannot calculate" |
-           "Member details - with post-1990" |
-           "Member details - cont & earnings" => expectedTextFromTable = s"Scheme member details\n$expectedTextFromTable"
-      case "Deceased Member details" |
-           "Deceased Member details - cannot calculate" => expectedTextFromTable = s"Deceased member’s entered details\n$expectedTextFromTable"
-      case "Post-1990" => expectedTextFromTable = s"Post-1990 value\n$expectedTextFromTable"
-      case _ => ()
-    }
-
-    val actualTextFromTable = name match {
-      case "GMP Periods" |
-           "Contracted out 1" => getElementText(XPathQuery("//*[@id=\"main-content\"]/div/div/table[1]"))
-      case "Member details" => getElementText(IdQuery("member-details-table"))
-      case "Member details - position 2" |
-           "Member details - not revalued" |
-           "Deceased Member details" => getElementText(IdQuery("member-details-table"))
-      case "Post-1990" |
-           "Contracted out 2" => getElementText(XPathQuery("//*[@id=\"main-content\"]/div/div/table[2]"))
-      case "Member details - cannot calculate" |
-           "Deceased Member details - cannot calculate" => getElementText(IdQuery("member-details-table"))
-      case "Member details - with post-1990" |
-           "Member details - cont & earnings" => getElementText(IdQuery("member-details-table"))
-      case default => getElementText(IdQuery(getMessageText(default)))
-    }
-    actualTextFromTable.filterNot(_.isWhitespace) should equal(expectedTextFromTable.filterNot(_.isWhitespace))
-  }
-
-  Then("""^I should see the following data in the "(.*)" bulk table:$""") { (name: String, dataTable: DataTable) =>
-    val datePattern = """(-?[0-9]+) (days?|weeks?|months?|years?)""".r
-    val scalaDataTableList: List[List[String]] = asScala(dataTable.asLists(classOf[String])).toList.asInstanceOf[List[util.List[String]]].map(dataList => asScala(dataList).toList)
-    val expectedTextFromTable = scalaDataTableList.map {
-      row: List[String] =>
-        row.filter(_ != null).map {
-          case x: String if x.startsWith("^") =>
-            val datePattern(count, _) = x.tail
-            LocalDate.now().plusDays(count.toInt).format(DateTimeFormatter.ofPattern("dd MMMM yyyy"))
-          case x => x
-        }.mkString(" ")
-    }.mkString("\n")
-    waitForVisible(By.id("previous-calculations-table"), 300)
-    val actualTextFromTable = getElementText(IdQuery("previous-calculations-table"))
-    actualTextFromTable.trim() should equal(expectedTextFromTable.trim())
   }
 
   Then("""^I should see the following values on the page$""") { dataTable: DataTable =>
@@ -224,5 +167,26 @@ class PageStepDefs extends MpeSteps {
     timeStamp.format(formatter)
     assert(timeStamp != null, "Current date and time is null")
     println(s"Validated current date and time: $timeStamp")
+  }
+
+  Then("^The protection tables contain:$") { dataTable: DataTable =>
+    val rows = dataTable.asMaps(classOf[String], classOf[String]).asScala
+    rows.foreach { row =>
+      val scalaRow = row.asScala
+      val protectionType = scalaRow("Type")
+      val container = driver.findElement(By.xpath(s"//*[contains(text(), '$protectionType')]/ancestor::div[contains(@class, 'govuk-summary-card')]"))
+      def verifyIfPresent(label: String, expected: String): Unit = {
+        if (expected.nonEmpty) {
+          val xpath = s".//div[contains(@class,'govuk-summary-list__row')][dt[contains(normalize-space(.), '$label')]]/dd"
+          val actual = container.findElement(By.xpath(xpath)).getText.trim
+          assert(actual == expected, s"For $protectionType - $label: expected '$expected' but found '$actual'")
+        }
+      }
+      verifyIfPresent("Status", Option(row.get("Status")).getOrElse(""))
+      verifyIfPresent("Protected amount", Option(row.get("Protected amount")).getOrElse(""))
+      verifyIfPresent("Lump sum", Option(row.get("Lump sum")).getOrElse(""))
+      verifyIfPresent("Factor", Option(row.get("Factor")).getOrElse(""))
+      verifyIfPresent("Protection reference number", Option(row.get("Reference number")).getOrElse(""))
+    }
   }
 }
