@@ -16,9 +16,8 @@
 
 package stepDefs
 
-import com.vladsch.flexmark.parser.core.delimiter.Bracket.link
 import config.Configuration
-import org.openqa.selenium.{By, JavascriptExecutor}
+import org.openqa.selenium.JavascriptExecutor
 
 class NavigationStepDefs extends MpeSteps {
   val environmentProperty: String = System.getProperty("environment", "local")
