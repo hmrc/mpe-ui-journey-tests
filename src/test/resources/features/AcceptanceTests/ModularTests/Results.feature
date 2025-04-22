@@ -49,7 +49,6 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-@wip
   Scenario Outline: Happy Path Journey - Navigate to Results page and verify if the members details are matched successfully for the Enhancements
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
