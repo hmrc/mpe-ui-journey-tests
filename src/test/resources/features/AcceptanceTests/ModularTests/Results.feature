@@ -1,8 +1,8 @@
 @acceptance @regression
 Feature:As a PSA/PSP User
-  I want to login and navigate to Check Your Answers Page
+  I want to login and navigate to Results Page
 
-  Scenario Outline: Happy Path Journey - Navigate to Check Your Answers page and review the answers before submitting.
+  Scenario Outline: Happy Path Journey - Navigate to Results page and verify if the members details are matched successfully for the Protections
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "Check a member's protections and enhancements" page
@@ -38,13 +38,18 @@ Feature:As a PSA/PSP User
       | More information on pension protections             |
       | Print this page                                     |
     And The Checked On time stamp should display current date and time
+    Given The protection tables contain:
+      | Type                       | Status                                                                                                                    | Protected amount | Lump sum | Factor | Protection reference number |
+      | Individual protection 2014 | Active - The protection is valid and can be used                                                                          | £1,440,321       |          |        | IP141234567890A             |
+      | Fixed protection 2016      | Dormant - The protection is approved, but a higher level of protection is currently in place, it cannot currently be used |                  |          |        | FP1612345678901A            |
+      | Primary protection         | Withdrawn - The protection has been lost, so it is not valid                                                              |                  | £34,876  | 0.21   | IP141234567890A             |
 
     Examples:
       | enrolmentID | enrolmentValue |
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Happy Path Journey - Change the 'First Name' and verify if the updated details are displayed on Check your Answers Page
+  Scenario Outline: Happy Path Journey - Change the 'First Name' and verify if the updated details are displayed on Results Page
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "Check a member's protections and enhancements" page
@@ -96,7 +101,7 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Happy Path Journey - Navigate to Check Your Answers page and click on 'MPS Dashboard' link.
+  Scenario Outline: Happy Path Journey - Navigate to Results and click on 'MPS Dashboard' link.
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "Check a member's protections and enhancements" page
@@ -120,14 +125,14 @@ Feature:As a PSA/PSP User
     When I click the "Accept and submit" link
     Then I should be on the "Results of your protections and enhancements check" page
     When I click the "MPS dashboard" link
-#    Then I should be on the "Administrator Dashboard" page
+#   TODO Then I should be on the "Administrator Dashboard" page
 
     Examples:
       | enrolmentID | enrolmentValue |
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Happy Path Journey - Navigate to Check Your Answers page and click on 'Check another member's protections and enhancements' link.
+  Scenario Outline: Happy Path Journey - Navigate to Results page and click on 'Check another member's protections and enhancements' link.
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "Check a member's protections and enhancements" page
@@ -158,7 +163,7 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Happy Path Journey - Navigate to Check Your Answers page and click on 'More information on pension protections' link.
+  Scenario Outline: Happy Path Journey - Navigate to Results page and click on 'More information on pension protections' link.
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "Check a member's protections and enhancements" page
@@ -189,7 +194,7 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Happy Path Journey - Navigate to Check Your Answers page and click on Back button.
+  Scenario Outline: Happy Path Journey - Navigate to Results page and click on Back button.
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "Check a member's protections and enhancements" page
