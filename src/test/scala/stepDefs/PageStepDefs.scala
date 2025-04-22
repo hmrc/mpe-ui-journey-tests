@@ -189,4 +189,25 @@ class PageStepDefs extends MpeSteps {
       verifyIfPresent("Protection reference number", Option(row.get("Reference number")).getOrElse(""))
     }
   }
+
+  Then("^The enhancement tables contain:$") { dataTable: DataTable =>
+    val rows = dataTable.asMaps(classOf[String], classOf[String]).asScala
+    rows.foreach { row =>
+      val scalaRow = row.asScala
+      val enhancementType = scalaRow("Type")
+      val container = driver.findElement(By.xpath(s"//*[contains(text(), '$enhancementType')]/ancestor::div[contains(@class, 'govuk-summary-card')]"))
+      def verifyIfPresent(label: String, expected: String): Unit = {
+        if (expected.nonEmpty) {
+          val xpath = s".//div[contains(@class,'govuk-summary-list__row')][dt[contains(normalize-space(.), '$label')]]/dd"
+          val actual = container.findElement(By.xpath(xpath)).getText.trim
+          assert(actual == expected, s"For $enhancementType - $label: expected '$expected' but found '$actual'")
+        }
+      }
+      verifyIfPresent("Status", Option(row.get("Status")).getOrElse(""))
+      verifyIfPresent("Protected amount", Option(row.get("Protected amount")).getOrElse(""))
+      verifyIfPresent("Lump sum", Option(row.get("Lump sum")).getOrElse(""))
+      verifyIfPresent("Enhancement factor", Option(row.get("Enhancement factor")).getOrElse(""))
+      verifyIfPresent("Protection reference number", Option(row.get("Reference number")).getOrElse(""))
+    }
+  }
 }

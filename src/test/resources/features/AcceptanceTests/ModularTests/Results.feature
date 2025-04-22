@@ -49,6 +49,52 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
+@wip
+  Scenario Outline: Happy Path Journey - Navigate to Results page and verify if the members details are matched successfully for the Enhancements
+    Given I have a new session
+    When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
+    Then I should be on the "Check a member's protections and enhancements" page
+    When I click the "Start now" link
+    Then I should be on the "What is the member's name?" page
+    When I fill in the "firstName" field with "Pearl"
+    And I fill in the "lastName" field with "Turner Harvey"
+    And I click the "Continue" button
+    Then I should be on the "What is Pearl Turner Harvey's date of birth?" page
+    When I fill in the "dateOfBirth.day" field with "5"
+    And I fill in the "dateOfBirth.month" field with "1"
+    And I fill in the "dateOfBirth.year" field with "1987"
+    And I click the "Continue" button
+    Then I should be on the "What is Pearl Turner Harvey's National Insurance number?" page
+    When I fill in the "nino" field with "QQ123456C"
+    And I click the "Continue" button
+    Then I should be on the "What is Pearl Turner Harvey's pension scheme administrator check reference?" page
+    And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 A"
+    And I click the "Continue" button
+    Then I should be on the "Check Pearl Turner Harvey's details" page
+    When I click the "Accept and submit" link
+    Then I should be on the "Results of your protections and enhancements check" page
+    And I should see the following values on the page
+      | value               |
+      | Pearl Turner Harvey |
+      | 05 January 1987     |
+      | QQ 12 34 56 C       |
+      | PSA 12 34 56 78 A   |
+    And I should see the following links on the page
+      | links                                               |
+      | MPS dashboard                                       |
+      | Check another member's protections and enhancements |
+      | More information on pension protections             |
+      | Print this page                                     |
+    And The Checked On time stamp should display current date and time
+    Given The enhancement tables contain:
+      | Type                                                                | Status                                            | Protected amount | Lump sum | Enhancement factor | Protection reference number |
+      | Non-residence factor for a transfer from an overseas pension scheme | Active - The enhancement is valid and can be used |                  |          | 0.12               | IE211234567890A             |
+
+  Examples:
+      | enrolmentID | enrolmentValue |
+      | PSA         | A2100001       |
+      | PSP         | 21000002       |
+
   Scenario Outline: Happy Path Journey - Change the 'First Name' and verify if the updated details are displayed on Results Page
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
