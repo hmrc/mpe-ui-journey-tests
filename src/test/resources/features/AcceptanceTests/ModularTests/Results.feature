@@ -38,7 +38,7 @@ Feature:As a PSA/PSP User
       | More information on pension protections             |
       | Print this page                                     |
     And The Checked On time stamp should display current date and time
-    Given The "Protection" tables contain:
+    And The "Protection" tables contain:
       | Type                       | Status                                                                                                                    | Protected amount | Lump sum | Factor | Protection reference number |
       | Individual protection 2014 | Active - The protection is valid and can be used                                                                          | £1,440,321       |          |        | IP141234567890A             |
       | Fixed protection 2016      | Dormant - The protection is approved, but a higher level of protection is currently in place, it cannot currently be used |                  |          |        | FP1612345678901A            |
@@ -85,7 +85,7 @@ Feature:As a PSA/PSP User
       | More information on pension protections             |
       | Print this page                                     |
     And The Checked On time stamp should display current date and time
-    Given The "Enhancement" tables contain:
+    And The "Enhancement" tables contain:
       | Type                                                                | Status                                            | Protected amount | Lump sum | Enhancement factor | Protection reference number |
       | Non-residence factor for a transfer from an overseas pension scheme | Active - The enhancement is valid and can be used |                  |          | 0.12               | IE211234567890A             |
 
