@@ -23,7 +23,7 @@ Feature:As a PSA
     Then I should be on the "pension scheme administrator check reference" page
     And I fill in the "PSA Check Reference" field with "PSA12345678A"
     Then I should be on the "Check Your Answers" page
-    And   I click the "Accept and submit" button
+    When I click the "Submit" link
 
   Scenario: Check accessibility statement on the GMP page
     Given I have a new session

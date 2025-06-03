@@ -6,7 +6,7 @@ I want to login and navigate to Homepage.
   Scenario Outline: Happy Path Journey - Login with a valid PSA or PSP User ID and navigate to Homepage
     Given I have a new session
     And I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "Check a member's protections and enhancements" page
+    Then I should be on the "What you'll need" page
 
     Examples:
       | enrolmentID | enrolmentValue |
