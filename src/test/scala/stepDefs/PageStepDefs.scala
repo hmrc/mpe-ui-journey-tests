@@ -44,7 +44,7 @@ class PageStepDefs extends MpeSteps {
     if (title.contains("protected allowances")) {
       waitForTitle(s"$title - GOV.UK")
     } else {
-      waitForTitle(s"$title - Check a member's protections and enhancements")
+      waitForTitle(s"$title - Check a pension scheme member’s protections and enhancements")
     }
   }
 

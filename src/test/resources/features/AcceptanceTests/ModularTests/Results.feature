@@ -2,6 +2,7 @@
 Feature:As a PSA/PSP User
   I want to login and navigate to Results Page
 
+  @wip
   Scenario Outline: Happy Path Journey - Navigate to Results page and verify if the members details are matched successfully for the Protections
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
@@ -34,16 +35,16 @@ Feature:As a PSA/PSP User
     And I should see the following links on the page
       | links                                                              |
       | Managing Pension Schemes                                           |
-      | Check a member's protections and enhancements                      |
+      | Check a pension scheme member’s protections and enhancements       |
       | Check another pension scheme member's protections and enhancements |
-      | Return to Managing Pension Schemes dashboard                       |
-      | Print this page                                                    |
+      | Managing pension schemes dashboard                                 |
+    And I should see the "Print this page" button on the page
     And The Checked On time stamp should display current date and time
     And The "Protection" tables contain:
       | Type                       | Status                                                                                                            | Protected amount | Lump sum | Factor | Protection reference number |
-      | Individual Protection 2014 | Active - The protection is valid and can be used                                                                  | £1,440,321       |          |        | IP141234567890A             |
-      | Fixed Protection 2016      | Dormant - The protection is approved, but a higher level of protection is currently in place, so it is not active |                  |          |        | FP1612345678901A            |
-      | Primary Protection         | Withdrawn - The protection has been lost, so it is not valid                                                      |                  | £34,876  | 0.21   | IP141234567890A             |
+      | Individual Protection 2014 | Active - the protection is valid and can be used                                                                  | £1,440,321       |          |        | IP141234567890A             |
+      | Fixed Protection 2016      | Dormant - the protection is approved, but a higher level of protection is currently in place, so it is not active |                  |          |        | FP1612345678901A            |
+      | Primary Protection         | Withdrawn - the protection has been lost, so it is not valid                                                      |                  | £34,876  | 0.21   | IP141234567890A             |
 
     Examples:
       | enrolmentID | enrolmentValue |
@@ -83,14 +84,14 @@ Feature:As a PSA/PSP User
     And I should see the following links on the page
       | links                                                              |
       | Managing Pension Schemes                                           |
-      | Check a member's protections and enhancements                      |
+      | Check a pension scheme member’s protections and enhancements       |
       | Check another pension scheme member's protections and enhancements |
-      | Return to Managing Pension Schemes dashboard                       |
-      | Print this page                                                    |
+      | Managing pension schemes dashboard                                 |
+    And I should see the "Print this page" button on the page
     And The Checked On time stamp should display current date and time
     And The "Enhancement" tables contain:
-      | Type                                                                           | Status                                  | Protected amount | Lump sum | Enhancement factor | Protection reference number |
-      | International Enhancement (transfer from a recognised overseas pension scheme) | Active - The protection is valid and can be used | £1,440,321       |          | 0.12               | IE211234567890A             |
+      | Type                                                                           | Status                                            | Protected amount | Lump sum | Enhancement factor | Protection reference number |
+      | International Enhancement (transfer from a recognised overseas pension scheme) | Active - the enhancement is valid and can be used | £1,440,321       |          | 0.12               | IE211234567890A             |
 
     Examples:
       | enrolmentID | enrolmentValue |
@@ -152,7 +153,7 @@ Feature:As a PSA/PSP User
     Then I should be on the "Check the member's details" page
     When I click the "Submit" link
     Then I should be on the "Results of protections and enhancements check" page
-    When I click the "Check a member's protections and enhancements" link
+    When I click the "Check a pension scheme member’s protections and enhancements" link
     Then I should be on the "What you'll need" page
 
     Examples:
@@ -191,7 +192,7 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Happy Path Journey - Navigate to Results and click on 'Return to Managing Pension Schemes dashboard' link.
+  Scenario Outline: Happy Path Journey - Navigate to Results and click on 'Managing pension schemes dashboard' link.
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page
@@ -214,7 +215,7 @@ Feature:As a PSA/PSP User
     Then I should be on the "Check the member's details" page
     When I click the "Submit" link
     Then I should be on the "Results of protections and enhancements check" page
-    When I click the "Return to Managing Pension Schemes dashboard" link
+    When I click the "Managing pension schemes dashboard" link
 #   TODO Then I should be on the "Administrator Dashboard" page
 
     Examples:
