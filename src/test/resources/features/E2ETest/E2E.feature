@@ -2,52 +2,29 @@
 Feature:As a PSA/PSP
   I want to login and navigate to Results Page and view the Protection and Enhancements
 
-  Scenario: Enter member details and navigate to MPE Results page
-    Given I have a new session
-    And I fill in the auth details for enrolment PSA with value A2100001
-    Then I should be on the "members-protections-and-enhancements" page
-    And I click the "Start Journey" button
-    Then  I should be on the "Pension Scheme Administrator or Practitioner" page
-    And I click the "Administrator View" button
-    Then I should be on the "MPE Start" page
-    And I click the "Continue" button
-    Then I should be on the "Enter member’s details" page
-    And I fill in the "firstname" field with "Pearl"
-    And I fill in the "surname" field with "Turner Harvey"
-    Then I should be on the "date of birth" page
-    And   I fill in the "leavingDate-leavingDate.day" field with "07"
-    And   I fill in the "leavingDate-leavingDate.month" field with "07"
-    And   I fill in the "leavingDate-leavingDate.year" field with "2016"
-    Then I should be on the "nino" page
-    And  I fill in the "nino" field with "NB315648A"
-    Then I should be on the "pension scheme administrator check reference" page
-    And I fill in the "PSA Check Reference" field with "PSA12345678A"
-    Then I should be on the "Check Your Answers" page
-    When I click the "Submit" link
-
   Scenario Outline: TC01 - Happy Path Journey - Open enhanced Protection - Valid Member Look up
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "Check a member's protections and enhancements" page
-    When I click the "Start now" link
-    Then I should be on the "What is the member's name?" page
+    Then I should be on the "What you'll need" page
+    When I click the "Continue" link
+    Then I should be on the "Member name" page
     When I fill in the "firstName" field with "John"
     And I fill in the "lastName" field with "Smith"
     And I click the "Continue" button
-    Then I should be on the "What is John Smith's date of birth?" page
+    Then I should be on the "What is the member's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "10"
     And I fill in the "dateOfBirth.month" field with "9"
     And I fill in the "dateOfBirth.year" field with "1954"
     And I click the "Continue" button
-    Then I should be on the "What is John Smith's National Insurance number?" page
+    Then I should be on the "What is the member's National Insurance number?" page
     When I fill in the "nino" field with "JX 99 99 99 A"
     And I click the "Continue" button
-    Then I should be on the "What is John Smith's pension scheme administrator check reference?" page
+    Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 W"
     And I click the "Continue" button
-    Then I should be on the "Check John Smith's details" page
-    When I click the "Accept and submit" link
-    Then I should be on the "Results of your protections and enhancements check" page
+    Then I should be on the "Check the member's details" page
+    When I click the "Submit" link
+    Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
       | John Smith        |
@@ -55,11 +32,12 @@ Feature:As a PSA/PSP
       | JX 99 99 99 A     |
       | PSA 12 34 56 78 W |
     And I should see the following links on the page
-      | links                                               |
-      | MPS dashboard                                       |
-      | Check another member's protections and enhancements |
-      | More information on pension protections             |
-      | Print this page                                     |
+      | links                                                              |
+      | Managing Pension Schemes                                           |
+      | Check a pension scheme member’s protections and enhancements       |
+      | Check another pension scheme member's protections and enhancements |
+      | Managing pension schemes dashboard                                 |
+    And I should see the "Print this page" button on the page
     And The Checked On time stamp should display current date and time
     And The "Protection" tables contain:
       | Type                   | Status | Protected amount | Lump sum | Factor | Protection reference number |
@@ -73,26 +51,26 @@ Feature:As a PSA/PSP
   Scenario Outline: TC02 - Happy Path Journey - Open enhanced Protection and dormant primary protection - Valid Member look up
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "Check a member's protections and enhancements" page
-    When I click the "Start now" link
-    Then I should be on the "What is the member's name?" page
+    Then I should be on the "What you'll need" page
+    When I click the "Continue" link
+    Then I should be on the "Member name" page
     When I fill in the "firstName" field with "Alan"
     And I fill in the "lastName" field with "Williams"
     And I click the "Continue" button
-    Then I should be on the "What is Alan Williams's date of birth?" page
+    Then I should be on the "What is the member's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "27"
     And I fill in the "dateOfBirth.month" field with "2"
     And I fill in the "dateOfBirth.year" field with "1949"
     And I click the "Continue" button
-    Then I should be on the "What is Alan Williams's National Insurance number?" page
+    Then I should be on the "What is the member's National Insurance number?" page
     When I fill in the "nino" field with "SB 99 99 99 A"
     And I click the "Continue" button
-    Then I should be on the "What is Alan Williams's pension scheme administrator check reference?" page
+    Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 23 45 67 81 W"
     And I click the "Continue" button
-    Then I should be on the "Check Alan Williams's details" page
-    When I click the "Accept and submit" link
-    Then I should be on the "Results of your protections and enhancements check" page
+    Then I should be on the "Check the member's details" page
+    When I click the "Submit" link
+    Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
       | Alan Williams     |
@@ -100,11 +78,12 @@ Feature:As a PSA/PSP
       | SB 99 99 99 A     |
       | PSA 23 45 67 81 W |
     And I should see the following links on the page
-      | links                                               |
-      | MPS dashboard                                       |
-      | Check another member's protections and enhancements |
-      | More information on pension protections             |
-      | Print this page                                     |
+      | links                                                              |
+      | Managing Pension Schemes                                           |
+      | Check a pension scheme member’s protections and enhancements       |
+      | Check another pension scheme member's protections and enhancements |
+      | Managing pension schemes dashboard                                 |
+    And I should see the "Print this page" button on the page
     And The Checked On time stamp should display current date and time
     And The "Protection" tables contain:
       | Type                   | Status  | Protected amount | Lump sum | Factor | Protection reference number |
@@ -119,26 +98,26 @@ Feature:As a PSA/PSP
   Scenario Outline: TC03 - Happy Path Journey - Individual has open individual protection 2014, dormant fixed protection 2016 and withdrawn primary protection - Valid Member look up
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "Check a member's protections and enhancements" page
-    When I click the "Start now" link
-    Then I should be on the "What is the member's name?" page
+    Then I should be on the "What you'll need" page
+    When I click the "Continue" link
+    Then I should be on the "Member name" page
     When I fill in the "firstName" field with "Rose"
     And I fill in the "lastName" field with "Rooster"
     And I click the "Continue" button
-    Then I should be on the "What is Rose Rooster's date of birth?" page
+    Then I should be on the "What is the member's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "30"
     And I fill in the "dateOfBirth.month" field with "1"
     And I fill in the "dateOfBirth.year" field with "1939"
     And I click the "Continue" button
-    Then I should be on the "What is Rose Rooster's National Insurance number?" page
+    Then I should be on the "What is the member's National Insurance number?" page
     When I fill in the "nino" field with "LW 99 99 99 C"
     And I click the "Continue" button
-    Then I should be on the "What is Rose Rooster's pension scheme administrator check reference?" page
+    Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 34 56 78 12 W"
     And I click the "Continue" button
-    Then I should be on the "Check Rose Rooster's details" page
-    When I click the "Accept and submit" link
-    Then I should be on the "Results of your protections and enhancements check" page
+    Then I should be on the "Check the member's details" page
+    When I click the "Submit" link
+    Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
       | Rose Rooster      |
@@ -146,11 +125,12 @@ Feature:As a PSA/PSP
       | LW 99 99 99 C     |
       | PSA 34 56 78 12 W |
     And I should see the following links on the page
-      | links                                               |
-      | MPS dashboard                                       |
-      | Check another member's protections and enhancements |
-      | More information on pension protections             |
-      | Print this page                                     |
+      | links                                                              |
+      | Managing Pension Schemes                                           |
+      | Check a pension scheme member’s protections and enhancements       |
+      | Check another pension scheme member's protections and enhancements |
+      | Managing pension schemes dashboard                                 |
+    And I should see the "Print this page" button on the page
     And The Checked On time stamp should display current date and time
     And The "Protection" tables contain:
       | Type                  | Status    | Protected amount | Lump sum | Factor | Protection reference number |
@@ -166,26 +146,26 @@ Feature:As a PSA/PSP
   Scenario Outline: TC04 - Happy Path Journey - Individual has open individual protection 2016, withdrawn fixed protection 2016 and withdrawn individual protection 2014 - Valid Member look up
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "Check a member's protections and enhancements" page
-    When I click the "Start now" link
-    Then I should be on the "What is the member's name?" page
+    Then I should be on the "What you'll need" page
+    When I click the "Continue" link
+    Then I should be on the "Member name" page
     When I fill in the "firstName" field with "Peter"
     And I fill in the "lastName" field with "Parker"
     And I click the "Continue" button
-    Then I should be on the "What is Peter Parker's date of birth?" page
+    Then I should be on the "What is the member's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "18"
     And I fill in the "dateOfBirth.month" field with "5"
     And I fill in the "dateOfBirth.year" field with "1952"
     And I click the "Continue" button
-    Then I should be on the "What is Peter Parker's National Insurance number?" page
+    Then I should be on the "What is the member's National Insurance number?" page
     When I fill in the "nino" field with "OG 99 99 99 B"
     And I click the "Continue" button
-    Then I should be on the "What is Peter Parker's pension scheme administrator check reference?" page
+    Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 45 67 81 23 W"
     And I click the "Continue" button
-    Then I should be on the "Check Peter Parker's details" page
-    When I click the "Accept and submit" link
-    Then I should be on the "Results of your protections and enhancements check" page
+    Then I should be on the "Check the member's details" page
+    When I click the "Submit" link
+    Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
       | Peter Parker      |
@@ -193,11 +173,12 @@ Feature:As a PSA/PSP
       | OG 99 99 99 B     |
       | PSA 45 67 81 23 W |
     And I should see the following links on the page
-      | links                                               |
-      | MPS dashboard                                       |
-      | Check another member's protections and enhancements |
-      | More information on pension protections             |
-      | Print this page                                     |
+      | links                                                              |
+      | Managing Pension Schemes                                           |
+      | Check a pension scheme member’s protections and enhancements       |
+      | Check another pension scheme member's protections and enhancements |
+      | Managing pension schemes dashboard                                 |
+    And I should see the "Print this page" button on the page
     And The Checked On time stamp should display current date and time
     And The "Protection" tables contain:
       | Type                       | Status    | Protected amount | Lump sum  | Factor | Protection reference number |
@@ -213,26 +194,26 @@ Feature:As a PSA/PSP
   Scenario Outline: TC05 - Happy Path Journey - Individual has open enhanced protection and an International enhancement (transfer from a recognised overseas pension scheme) - Valid Member look up
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "Check a member's protections and enhancements" page
-    When I click the "Start now" link
-    Then I should be on the "What is the member's name?" page
+    Then I should be on the "What you'll need" page
+    When I click the "Continue" link
+    Then I should be on the "Member name" page
     When I fill in the "firstName" field with "Tim"
     And I fill in the "lastName" field with "Thomas"
     And I click the "Continue" button
-    Then I should be on the "What is Tim Thomas's date of birth?" page
+    Then I should be on the "What is the member's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "29"
     And I fill in the "dateOfBirth.month" field with "11"
     And I fill in the "dateOfBirth.year" field with "1963"
     And I click the "Continue" button
-    Then I should be on the "What is Tim Thomas's National Insurance number?" page
+    Then I should be on the "What is the member's National Insurance number?" page
     When I fill in the "nino" field with "ZA 99 99 99 A"
     And I click the "Continue" button
-    Then I should be on the "What is Tim Thomas's pension scheme administrator check reference?" page
+    Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 56 78 12 34 W"
     And I click the "Continue" button
-    Then I should be on the "Check Tim Thomas's details" page
-    When I click the "Accept and submit" link
-    Then I should be on the "Results of your protections and enhancements check" page
+    Then I should be on the "Check the member's details" page
+    When I click the "Submit" link
+    Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
       | Tim Thomas        |
@@ -240,11 +221,12 @@ Feature:As a PSA/PSP
       | ZA 99 99 99 A     |
       | PSA 56 78 12 34 W |
     And I should see the following links on the page
-      | links                                               |
-      | MPS dashboard                                       |
-      | Check another member's protections and enhancements |
-      | More information on pension protections             |
-      | Print this page                                     |
+      | links                                                              |
+      | Managing Pension Schemes                                           |
+      | Check a pension scheme member’s protections and enhancements       |
+      | Check another pension scheme member's protections and enhancements |
+      | Managing pension schemes dashboard                                 |
+    And I should see the "Print this page" button on the page
     And The Checked On time stamp should display current date and time
     And The "Protection" tables contain:
       | Type                | Status | Protected amount | Lump sum | Factor | Protection reference number |
@@ -261,26 +243,26 @@ Feature:As a PSA/PSP
   Scenario Outline: TC06 - Happy Path Journey - Individual has open fixed protection 2016, dormant individual protection 2016, withdrawn primary protection, International enhancement (transfer from a recognised overseas pension scheme), International enhancemant (individuals who are relevant overseas individuals), pension credits (pre-commencement) and pension credits (from previously crystallised rights) - Valid Member look up
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "Check a member's protections and enhancements" page
-    When I click the "Start now" link
-    Then I should be on the "What is the member's name?" page
+    Then I should be on the "What you'll need" page
+    When I click the "Continue" link
+    Then I should be on the "Member name" page
     When I fill in the "firstName" field with "Pearl"
     And I fill in the "lastName" field with "Brown"
     And I click the "Continue" button
-    Then I should be on the "What is Pearl Brown's date of birth?" page
+    Then I should be on the "What is the member's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "2"
     And I fill in the "dateOfBirth.month" field with "12"
     And I fill in the "dateOfBirth.year" field with "1939"
     And I click the "Continue" button
-    Then I should be on the "What is Pearl Brown's National Insurance number?" page
+    Then I should be on the "What is the member's National Insurance number?" page
     When I fill in the "nino" field with "NW 99 99 99 A"
     And I click the "Continue" button
-    Then I should be on the "What is Pearl Brown's pension scheme administrator check reference?" page
+    Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 67 81 23 45 W"
     And I click the "Continue" button
-    Then I should be on the "Check Pearl Brown's details" page
-    When I click the "Accept and submit" link
-    Then I should be on the "Results of your protections and enhancements check" page
+    Then I should be on the "Check the member's details" page
+    When I click the "Submit" link
+    Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
       | Pearl Brown       |
@@ -288,11 +270,12 @@ Feature:As a PSA/PSP
       | NW 99 99 99 A     |
       | PSA 67 81 23 45 W |
     And I should see the following links on the page
-      | links                                               |
-      | MPS dashboard                                       |
-      | Check another member's protections and enhancements |
-      | More information on pension protections             |
-      | Print this page                                     |
+      | links                                                              |
+      | Managing Pension Schemes                                           |
+      | Check a pension scheme member’s protections and enhancements       |
+      | Check another pension scheme member's protections and enhancements |
+      | Managing pension schemes dashboard                                 |
+    And I should see the "Print this page" button on the page
     And The Checked On time stamp should display current date and time
     And The "Protection" tables contain:
       | Type                  | Status    | Protected amount | Lump sum | Factor | Protection reference number |
@@ -314,26 +297,26 @@ Feature:As a PSA/PSP
   Scenario Outline: TC07 - Happy Path Journey - Individual has open enhanced protection and dormant primary protection - Valid Member Look up
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "Check a member's protections and enhancements" page
-    When I click the "Start now" link
-    Then I should be on the "What is the member's name?" page
+    Then I should be on the "What you'll need" page
+    When I click the "Continue" link
+    Then I should be on the "Member name" page
     When I fill in the "firstName" field with "Alan"
     And I fill in the "lastName" field with "Williams"
     And I click the "Continue" button
-    Then I should be on the "What is Alan Williams's date of birth?" page
+    Then I should be on the "What is the member's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "27"
     And I fill in the "dateOfBirth.month" field with "4"
     And I fill in the "dateOfBirth.year" field with "1949"
     And I click the "Continue" button
-    Then I should be on the "What is Alan Williams's National Insurance number?" page
+    Then I should be on the "What is the member's National Insurance number?" page
     When I fill in the "nino" field with "66Q03379"
     And I click the "Continue" button
-    Then I should be on the "What is Alan Williams's pension scheme administrator check reference?" page
+    Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 23 45 67 81 W"
     And I click the "Continue" button
-    Then I should be on the "Check Alan Williams's details" page
-    When I click the "Accept and submit" link
-    Then I should be on the "Results of your protections and enhancements check" page
+    Then I should be on the "Check the member's details" page
+    When I click the "Submit" link
+    Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
       | Alan Williams     |
@@ -341,11 +324,12 @@ Feature:As a PSA/PSP
       | 66Q03379          |
       | PSA 23 45 67 81 W |
     And I should see the following links on the page
-      | links                                               |
-      | MPS dashboard                                       |
-      | Check another member's protections and enhancements |
-      | More information on pension protections             |
-      | Print this page                                     |
+      | links                                                              |
+      | Managing Pension Schemes                                           |
+      | Check a pension scheme member’s protections and enhancements       |
+      | Check another pension scheme member's protections and enhancements |
+      | Managing pension schemes dashboard                                 |
+    And I should see the "Print this page" button on the page
     And The Checked On time stamp should display current date and time
     And The "Protection" tables contain:
       | Type                | Status  | Protected amount | Lump sum | Factor | Protection reference number |
@@ -360,26 +344,26 @@ Feature:As a PSA/PSP
   Scenario Outline: TC08 - Happy Path Journey - Individual has open individual protection 2014, International enhancemant (individuals who are relevant overseas individuals), pension credits (pre-commencement)  and withdrawn primary protection - Valid Member look up
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "Check a member's protections and enhancements" page
-    When I click the "Start now" link
-    Then I should be on the "What is the member's name?" page
+    Then I should be on the "What you'll need" page
+    When I click the "Continue" link
+    Then I should be on the "Member name" page
     When I fill in the "firstName" field with "Mile"
     And I fill in the "lastName" field with "Slatcher"
     And I click the "Continue" button
-    Then I should be on the "What is Mile Slatcher's date of birth?" page
+    Then I should be on the "What is the member's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "15"
     And I fill in the "dateOfBirth.month" field with "7"
     And I fill in the "dateOfBirth.year" field with "1942"
     And I click the "Continue" button
-    Then I should be on the "What is Mile Slatcher's National Insurance number?" page
+    Then I should be on the "What is the member's National Insurance number?" page
     When I fill in the "nino" field with "SA 99 99 99 B"
     And I click the "Continue" button
-    Then I should be on the "What is Mile Slatcher's pension scheme administrator check reference?" page
+    Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 56 78 12 33 W"
     And I click the "Continue" button
-    Then I should be on the "Check Mile Slatcher's details" page
-    When I click the "Accept and submit" link
-    Then I should be on the "Results of your protections and enhancements check" page
+    Then I should be on the "Check the member's details" page
+    When I click the "Submit" link
+    Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
       | Mile Slatcher     |
@@ -387,11 +371,12 @@ Feature:As a PSA/PSP
       | SA 99 99 99 B     |
       | PSA 56 78 12 33 W |
     And I should see the following links on the page
-      | links                                               |
-      | MPS dashboard                                       |
-      | Check another member's protections and enhancements |
-      | More information on pension protections             |
-      | Print this page                                     |
+      | links                                                              |
+      | Managing Pension Schemes                                           |
+      | Check a pension scheme member’s protections and enhancements       |
+      | Check another pension scheme member's protections and enhancements |
+      | Managing pension schemes dashboard                                 |
+    And I should see the "Print this page" button on the page
     And The Checked On time stamp should display current date and time
     And The "Protection" tables contain:
       | Type                       | Status    | Protected amount | Lump sum  | Factor | Protection reference number |

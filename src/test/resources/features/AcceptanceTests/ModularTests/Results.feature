@@ -2,7 +2,6 @@
 Feature:As a PSA/PSP User
   I want to login and navigate to Results Page
 
-  @wip
   Scenario Outline: Happy Path Journey - Navigate to Results page and verify if the members details are matched successfully for the Protections
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
