@@ -1,8 +1,8 @@
 @acceptance @regression
 Feature:As a PSA/PSP User
-  I want to login and navigate to Member's Name Page
+  I want to login and navigate to 'Member name' Page
 
-  Scenario Outline: Happy Path Journey - Navigate to Member's Name Page and enter valid First and Last Name
+  Scenario Outline: Happy Path Journey - Navigate to 'Member name' Page and enter valid First and Last Name
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page
@@ -16,7 +16,7 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Happy Path Journey - Navigate to Member's Name Page and click on 'Back' button
+  Scenario Outline: Happy Path Journey - Navigate to 'Member name' Page and click on 'Back' button
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page
@@ -32,7 +32,7 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Happy Path Journey - Navigate to Member's DOB Page and click on 'Back' button
+  Scenario Outline: Happy Path Journey - Navigate to 'Member's DOB' Page and click on 'Back' button
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page
@@ -51,7 +51,7 @@ Feature:As a PSA/PSP User
       | PSP         | 21000002       |
 
 
-  Scenario Outline: Unhappy path journey's for Member's Name Page for a valid PSA User
+  Scenario Outline: Unhappy path journey's for 'Member name' Page for a valid PSA User
     Given I have a new session
     When I fill in the auth details for enrolment PSA with value A2100001
     Then I should be on the "What you'll need" page
@@ -74,7 +74,7 @@ Feature:As a PSA/PSP User
       | Rhoshandiatellyneshiaunneveshenk Koyaanisquatsiuth | Wiiliams                             | Error: Member name | The member's first name must be 35 characters or fewer |
       | Janice                                             | Keihanaikukauakahihuliheekahaunaelel | Error: Member name | The member's last name must be 35 characters or fewer  |
 
-  Scenario Outline: Unhappy path journey's for Member's Name Page for a valid PSP User
+  Scenario Outline: Unhappy path journey's for 'Member name' Page for a valid PSP User
     Given I have a new session
     When I fill in the auth details for enrolment PSP with value 2100002
     Then I should be on the "What you'll need" page

@@ -1,8 +1,8 @@
 @acceptance @regression
 Feature:As a PSA/PSP User
-  I want to login and navigate to Member's National Insurance Number Page
+  I want to login and navigate to 'Member's National Insurance Number' Page
 
-  Scenario Outline: Happy Path Journey - Navigate to Member's NINO Page and enter valid NINO number without Blanks
+  Scenario Outline: Happy Path Journey - Navigate to 'Member's NINO' Page and enter valid NINO number without Blanks
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page
@@ -27,7 +27,7 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Happy Path Journey - Navigate to Member's NINO Page and enter valid NINO number with Blanks
+  Scenario Outline: Happy Path Journey - Navigate to 'Member's NINO' Page and enter valid NINO number with Blanks
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page
@@ -51,7 +51,7 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Happy Path Journey - Navigate to Member's Pension Scheme Administrator Check Reference Page and enter valid TRN number without blanks
+  Scenario Outline: Happy Path Journey - Navigate to 'Member's Pension Scheme Administrator Check Reference' Page and enter valid TRN number without blanks
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page
@@ -75,7 +75,7 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Happy Path Journey - Navigate to Member's Pension Scheme Administrator Check Reference Page and enter valid TRN number with blanks
+  Scenario Outline: Happy Path Journey - Navigate to 'Member's Pension Scheme Administrator Check Reference' Page and enter valid TRN number with blanks
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page
@@ -99,7 +99,7 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Happy Path Journey - Navigate to Member's Pension Scheme Administrator's Check Reference Page and click on 'Back' button
+  Scenario Outline: Happy Path Journey - Navigate to 'Member's Pension Scheme Administrator's Check Reference' Page and click on 'Back' button
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page
@@ -125,7 +125,7 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Unhappy path journey's for Member's NINO Page for a valid PSA User
+  Scenario Outline: Unhappy path journey's for 'Member's NINO' Page for a valid PSA User
     Given I have a new session
     When I fill in the auth details for enrolment PSA with value A2100001
     Then I should be on the "What you'll need" page
@@ -157,7 +157,7 @@ Feature:As a PSA/PSP User
       | 1111a11       | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
       |               | Error: What is the member's National Insurance number? | Enter a National Insurance number                              |
 
-  Scenario Outline: Unhappy path journey's for Member's NINO Page for a valid PSP User
+  Scenario Outline: Unhappy path journey's for 'Member's NINO' Page for a valid PSP User
     Given I have a new session
     When I fill in the auth details for enrolment PSP with value 2100002
     Then I should be on the "What you'll need" page
