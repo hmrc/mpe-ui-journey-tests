@@ -1,9 +1,9 @@
 @regression
 Feature:As a PSA/PSP User
-I want to login and navigate to Homepage.
+I want to login and navigate to 'Login' Page
 
 
-  Scenario Outline: Happy Path Journey - Login with a valid PSA or PSP User ID and navigate to Homepage
+  Scenario Outline: Happy Path Journey - Login with a valid PSA or PSP User ID and navigate to 'Login' page
     Given I have a new session
     And I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page

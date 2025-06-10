@@ -2,7 +2,6 @@
 Feature:As a PSA/PSP User
   I want to login and navigate to Results Page
 
-  @wip
   Scenario Outline: Happy Path Journey - Navigate to Results page and verify if the members details are matched successfully for the Protections
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
@@ -23,7 +22,7 @@ Feature:As a PSA/PSP User
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 A"
     And I click the "Continue" button
-    Then I should be on the "Check the member's details" page
+    Then I should be on the "Check your answers" page
     When I click the "Submit" link
     Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
@@ -72,7 +71,7 @@ Feature:As a PSA/PSP User
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 A"
     And I click the "Continue" button
-    Then I should be on the "Check the member's details" page
+    Then I should be on the "Check your answers" page
     When I click the "Submit" link
     Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
@@ -118,7 +117,7 @@ Feature:As a PSA/PSP User
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 A"
     And I click the "Continue" button
-    Then I should be on the "Check the member's details" page
+    Then I should be on the "Check your answers" page
     When I click the "Submit" link
     Then I should be on the "Results of protections and enhancements check" page
     When I click the "Managing Pension Schemes" link
@@ -150,7 +149,7 @@ Feature:As a PSA/PSP User
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 A"
     And I click the "Continue" button
-    Then I should be on the "Check the member's details" page
+    Then I should be on the "Check your answers" page
     When I click the "Submit" link
     Then I should be on the "Results of protections and enhancements check" page
     When I click the "Check a pension scheme member’s protections and enhancements" link
@@ -181,7 +180,7 @@ Feature:As a PSA/PSP User
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 A"
     And I click the "Continue" button
-    Then I should be on the "Check the member's details" page
+    Then I should be on the "Check your answers" page
     When I click the "Submit" link
     Then I should be on the "Results of protections and enhancements check" page
     When I click the "Check another pension scheme member's protections and enhancements" link
@@ -212,7 +211,7 @@ Feature:As a PSA/PSP User
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 A"
     And I click the "Continue" button
-    Then I should be on the "Check the member's details" page
+    Then I should be on the "Check your answers" page
     When I click the "Submit" link
     Then I should be on the "Results of protections and enhancements check" page
     When I click the "Managing pension schemes dashboard" link

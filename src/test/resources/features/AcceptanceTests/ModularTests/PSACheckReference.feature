@@ -1,8 +1,8 @@
 @acceptance @regression
 Feature:As a PSA/PSP User
-  I want to login and navigate to Member's Pension Scheme Administrator Check Reference Page
+  I want to login and navigate to 'Member's Pension Scheme Administrator Check Reference' Page
 
-  Scenario Outline: Happy Path Journey - Navigate to Member's PSA Check Reference Page and enter valid PSA Check Reference number without blanks
+  Scenario Outline: Happy Path Journey - Navigate to 'Member's PSA Check Reference' Page and enter valid PSA Check Reference number without blanks
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page
@@ -23,7 +23,7 @@ Feature:As a PSA/PSP User
     And I should see hint text "For example, PSA 12 34 56 78 A" on the page
     And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 A"
     And I click the "Continue" button
-    Then I should be on the "Check the member's details" page
+    Then I should be on the "Check your answers" page
 
     Examples:
       | enrolmentID | enrolmentValue |
@@ -31,7 +31,7 @@ Feature:As a PSA/PSP User
       | PSP         | 21000002       |
 
 
-  Scenario Outline: Happy Path Journey - Navigate to Member's PSA Check Reference Page and enter valid PSA Check Reference number with Blanks
+  Scenario Outline: Happy Path Journey - Navigate to 'Member's PSA Check Reference' Page and enter valid PSA Check Reference number with Blanks
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page
@@ -51,14 +51,14 @@ Feature:As a PSA/PSP User
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with " P S A 1 2 3 4 5 6 7 8 A "
     And I click the "Continue" button
-    Then I should be on the "Check the member's details" page
+    Then I should be on the "Check your answers" page
 
     Examples:
       | enrolmentID | enrolmentValue |
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Happy Path Journey - Navigate to Check Your Answers Page and click on 'Back' button
+  Scenario Outline: Happy Path Journey - Navigate to 'Check Your Answers' Page and click on 'Back' button
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page
@@ -78,7 +78,7 @@ Feature:As a PSA/PSP User
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA12345678A"
     And I click the "Continue" button
-    Then I should be on the "Check the member's details" page
+    Then I should be on the "Check your answers" page
     When I click the "Back" link
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
 
@@ -87,7 +87,7 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
-  Scenario Outline: Unhappy path journey's for Member's PSA Check Reference Number Page for a valid PSA User
+  Scenario Outline: Unhappy path journey's for 'Member's PSA Check Reference Number' Page for a valid PSA User
     Given I have a new session
     When I fill in the auth details for enrolment PSA with value A2100001
     Then I should be on the "What you'll need" page
@@ -124,7 +124,7 @@ Feature:As a PSA/PSP User
       | PSA1234A      | Error: What is the member's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
 
 
-  Scenario Outline: Unhappy path journey's for Member's PSA Check Reference Number Page for a valid PSP User
+  Scenario Outline: Unhappy path journey's for 'Member's PSA Check Reference Number' Page for a valid PSP User
     Given I have a new session
     When I fill in the auth details for enrolment PSP with value 2100002
     Then I should be on the "What you'll need" page
