@@ -32,6 +32,20 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
+  Scenario Outline: Happy Path Journey - Navigate to 'Member name' Page and click on 'Back' button
+    Given I have a new session
+    When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
+    Then I should be on the "What you'll need" page
+    When I click the "Continue" link
+    Then I should be on the "Member name" page
+    When I click the "Sign out" link
+#   TODO Then I should be on the "Feedback" page
+
+    Examples:
+      | enrolmentID | enrolmentValue |
+      | PSA         | A2100001       |
+      | PSP         | 21000002       |
+
   Scenario Outline: Happy Path Journey - Navigate to 'Member's DOB' Page and click on 'Back' button
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
