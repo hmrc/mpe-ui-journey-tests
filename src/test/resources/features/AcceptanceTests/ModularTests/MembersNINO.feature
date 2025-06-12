@@ -125,6 +125,29 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
+  Scenario Outline: Happy Path Journey - Navigate to 'Member's Pension Scheme Administrator's Check Reference' Page and click on 'Back' button
+    Given I have a new session
+    When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
+    Then I should be on the "What you'll need" page
+    When I click the "Continue" link
+    Then I should be on the "Member name" page
+    When I fill in the "firstName" field with "Pearl"
+    And I fill in the "lastName" field with "Turner Harvey"
+    And I click the "Continue" button
+    Then I should be on the "What is the member's date of birth?" page
+    When I fill in the "dateOfBirth.day" field with "05"
+    And I fill in the "dateOfBirth.month" field with "12"
+    And I fill in the "dateOfBirth.year" field with "1987"
+    And I click the "Continue" button
+    Then I should be on the "What is the member's National Insurance number?" page
+    When I click the "Sign out" link
+#   TODO Then I should be on the "Feedback" page
+
+    Examples:
+      | enrolmentID | enrolmentValue |
+      | PSA         | A2100001       |
+      | PSP         | 21000002       |
+
   Scenario Outline: Unhappy path journey's for 'Member's NINO' Page for a valid PSA User
     Given I have a new session
     When I fill in the auth details for enrolment PSA with value A2100001
