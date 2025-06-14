@@ -148,7 +148,7 @@ Feature:As a PSA/PSP User
       | PSA1234@5678A | Error: What is the member's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
       | PSA12345678AA | Error: What is the member's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
       | PSA1234A      | Error: What is the member's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
-
+      | PPA12345678A  | Error: What is the member's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
 
   Scenario Outline: Unhappy path journey's for 'Member's PSA Check Reference Number' Page for a valid PSP User
     Given I have a new session
@@ -185,4 +185,5 @@ Feature:As a PSA/PSP User
       | PSA1234@5678A | Error: What is the member's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
       | PSA12345678AA | Error: What is the member's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
       | PSA1234A      | Error: What is the member's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
+      | PPA12345678A  | Error: What is the member's pension scheme administrator check reference? | Enter the member's pension scheme administrator check reference in a valid format |
 
