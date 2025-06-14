@@ -172,6 +172,26 @@ Feature:As a PSA/PSP User
 
     Examples:
       | ninoNumber    | page                                                   | error                                                          |
+      | DQ123456A     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QD123456B     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | FQ123456C     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QF123456D     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | IQ123456A     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QI123456B     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | BQ123456C     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QB123456D     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | UQ123456A     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QU123456B     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | VQ123456C     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QV123456D     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QO123456A     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | BG123456B     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | GB123456C     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | KN123456D     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | NK123456A     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | NT123456B     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | TN123456C     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | ZZ123456D     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
       | QQ123456      | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
       | 12345678      | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
       | 12 QQ 34 56 C | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
@@ -203,7 +223,27 @@ Feature:As a PSA/PSP User
     And  I click the "<error>" error link
 
     Examples:
-      | ninoNumber    | page                                                            | error                                                          |
+      | ninoNumber    | page                                                   | error                                                          |
+      | DQ123456A     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QD123456B     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | FQ123456C     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QF123456D     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | IQ123456A     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QI123456B     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | BQ123456C     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QB123456D     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | UQ123456A     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QU123456B     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | VQ123456C     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QV123456D     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | QO123456A     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | BG123456B     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | GB123456C     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | KN123456D     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | NK123456A     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | NT123456B     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | TN123456C     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
+      | ZZ123456D     | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
       | QQ123456      | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
       | 12345678      | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
       | 12 QQ 34 56 C | Error: What is the member's National Insurance number? | Enter the member's National Insurance number in a valid format |
