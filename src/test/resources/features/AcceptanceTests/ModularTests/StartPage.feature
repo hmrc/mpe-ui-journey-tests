@@ -44,7 +44,7 @@ Feature:As a PSA/PSP User
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
     Then I should be on the "What you'll need" page
     When I click the "Sign out" link
-#   TODO Then I should be on the "Feedback" page
+    Then I should be on the "Give feedback" page
 
     Examples:
       | enrolmentID | enrolmentValue |

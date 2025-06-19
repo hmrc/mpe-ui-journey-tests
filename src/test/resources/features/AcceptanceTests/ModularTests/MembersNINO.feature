@@ -141,7 +141,7 @@ Feature:As a PSA/PSP User
     And I click the "Continue" button
     Then I should be on the "What is the member's National Insurance number?" page
     When I click the "Sign out" link
-#   TODO Then I should be on the "Feedback" page
+    Then I should be on the "Give feedback" page
 
     Examples:
       | enrolmentID | enrolmentValue |

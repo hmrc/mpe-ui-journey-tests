@@ -43,7 +43,11 @@ class PageStepDefs extends MpeSteps {
   Then("""^I should be on the "(.*)" page""") { title: String =>
     if (title.contains("protected allowances")) {
       waitForTitle(s"$title - GOV.UK")
-    } else {
+    }
+    else if(title.contains("feedback")){
+     waitForTitle(s"$title - GOV.UK")
+    }
+    else {
       waitForTitle(s"$title - Check a pension scheme member’s protections and enhancements")
     }
   }

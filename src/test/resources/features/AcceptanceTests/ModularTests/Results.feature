@@ -33,7 +33,7 @@ Feature:As a PSA/PSP User
       | PSA 12 34 56 78 A   |
     And I should see the following links on the page
       | links                                                              |
-      | Managing Pension Schemes                                           |
+      | Managing pension schemes                                           |
       | Check a pension scheme member’s protections and enhancements       |
       | Check another pension scheme member's protections and enhancements |
       | Managing pension schemes dashboard                                 |
@@ -82,7 +82,7 @@ Feature:As a PSA/PSP User
       | PSA 12 34 56 78 A   |
     And I should see the following links on the page
       | links                                                              |
-      | Managing Pension Schemes                                           |
+      | Managing pension schemes                                           |
       | Check a pension scheme member’s protections and enhancements       |
       | Check another pension scheme member's protections and enhancements |
       | Managing pension schemes dashboard                                 |
@@ -120,7 +120,7 @@ Feature:As a PSA/PSP User
     Then I should be on the "Check your answers" page
     When I click the "Submit" link
     Then I should be on the "Results of protections and enhancements check" page
-    When I click the "Managing Pension Schemes" link
+    When I click the "Managing pension schemes" link
 #   TODO Then I should be on the "Administrator Dashboard" page
 
     Examples:
@@ -246,7 +246,7 @@ Feature:As a PSA/PSP User
     When I click the "Submit" link
     Then I should be on the "Results of protections and enhancements check" page
     When I click the "Sign out" link
-#   TODO Then I should be on the "Feedback" page
+    Then I should be on the "Give feedback" page
 
     Examples:
       | enrolmentID | enrolmentValue |
