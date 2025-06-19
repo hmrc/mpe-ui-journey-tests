@@ -39,7 +39,7 @@ Feature:As a PSA/PSP User
     When I click the "Continue" link
     Then I should be on the "Member name" page
     When I click the "Sign out" link
-#   TODO Then I should be on the "Feedback" page
+    Then I should be on the "Give feedback" page
 
     Examples:
       | enrolmentID | enrolmentValue |
