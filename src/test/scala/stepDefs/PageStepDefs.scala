@@ -188,8 +188,8 @@ class PageStepDefs extends MpeSteps {
       }
       verifyIfPresent("Status", Option(row.get("Status")).getOrElse(""))
       verifyIfPresent("Protected amount", Option(row.get("Protected amount")).getOrElse(""))
-      verifyIfPresent("Lump sum", Option(row.get("Lump sum")).getOrElse(""))
-      if (cardType == "protection") verifyIfPresent("Factor", Option(row.get("Factor")).getOrElse("")) else verifyIfPresent("Enhancement factor", Option(row.get("Enhancement factor")).getOrElse(""))
+      verifyIfPresent("Lump Sum", Option(row.get("Lump Sum")).getOrElse(""))
+      if (cardType == "Protection") verifyIfPresent("Factor", Option(row.get("Factor")).getOrElse("")) else verifyIfPresent("Enhancement factor", Option(row.get("Enhancement factor")).getOrElse(""))
       verifyIfPresent("Protection reference number", Option(row.get("Reference number")).getOrElse(""))
     }
   }
