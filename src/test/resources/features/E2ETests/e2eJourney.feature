@@ -1,4 +1,4 @@
-@test
+@e2e
 Feature:As a PSA/PSP User
   I want to login and navigate to Results Page
 
@@ -169,7 +169,6 @@ Feature:As a PSA/PSP User
       | PSA         | A2100001       |
       | PSP         | 21000002       |
 
- @e2e
   Scenario Outline: Happy Path Journey - Navigate to No Results page when the member details match but he does not have any exiting Protection certificate
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
