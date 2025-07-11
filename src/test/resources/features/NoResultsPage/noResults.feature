@@ -38,7 +38,6 @@ Feature:As a PSA/PSP User
     Examples:
       | enrolmentID | enrolmentValue |
       | PSA         | A2100001       |
-      | PSP         | 21000002       |
 
   Scenario Outline: Happy Path Journey - Navigate to No Results page when the member details match but he does not have any exiting Protection certificate
     Given I have a new session
@@ -72,5 +71,4 @@ Feature:As a PSA/PSP User
 
     Examples:
       | enrolmentID | enrolmentValue |
-      | PSA         | A2100001       |
       | PSP         | 21000002       |

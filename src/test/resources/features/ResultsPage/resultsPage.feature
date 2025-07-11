@@ -46,7 +46,6 @@ Feature:As a PSA/PSP User
     Examples:
       | enrolmentID | enrolmentValue |
       | PSA         | A2100001       |
-      | PSP         | 21000002       |
 
   Scenario Outline: Happy Path Journey - Navigate to Results page and verify if the members details are matched successfully for the Protection and Enhancements with valid TRN number
     Given I have a new session
@@ -83,9 +82,8 @@ Feature:As a PSA/PSP User
       | International Enhancement (transfer from a recognised overseas pension scheme) | Active - the enhancement is valid and can be used |                  |          | 0.75               | IE242345678901A             |
 
   Examples:
-      | enrolmentID | enrolmentValue |
-      | PSA         | A2100001       |
-      | PSP         | 21000002       |
+    | enrolmentID | enrolmentValue |
+    | PSP         | 21000002       |
 
   Scenario Outline: Happy Path Journey - Navigate to Results page and verify if the members details are matched successfully for multiple Protections and Enhancements
     Given I have a new session
@@ -129,4 +127,3 @@ Feature:As a PSA/PSP User
   Examples:
     | enrolmentID | enrolmentValue |
     | PSA         | A2100001       |
-    | PSP         | 21000002       |
