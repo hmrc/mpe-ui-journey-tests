@@ -24,7 +24,7 @@ Feature:As a PSA/PSP User
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
     When I click the "Submit" link
-    Then I should be on the "Sorry, there is a problem with the service - 500" page
+    Then I should be on the "Sorry, there is a problem with the service" page
    And I should see the "contact us for help with pension scheme queries" link on the page
 
     Examples:
