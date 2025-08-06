@@ -5,8 +5,8 @@ Feature:As a PSA/PSP User
   Scenario Outline: Happy Path Journey - Navigate to Default Error page when there is issue within the service or when an API response error code is recieved
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "What you'll need" page
-    When I click the "Continue" link
+    Then I should be on the "Check a pension scheme member's protections and enhancements" page
+    When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
     When I fill in the "firstName" field with "Emily"
     And I fill in the "lastName" field with "Carter"

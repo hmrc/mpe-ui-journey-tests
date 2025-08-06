@@ -20,10 +20,14 @@ import config.MessageReader._
 import io.cucumber.datatable.DataTable
 import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.{By, JavascriptExecutor, NoSuchElementException}
+
 import java.time.format.DateTimeFormatter
+import scala.collection.convert.ImplicitConversions.`map AsScala`
 import scala.jdk.CollectionConverters._
+import scala.util.Try
 
 class PageStepDefs extends MpeSteps {
+  def safeTrim(value: String): String = Option(value).map(_.trim).getOrElse("")
 
   val upload: XPathQuery = XPathQuery("//*[@id=\"upload-button\"]")
 
@@ -44,11 +48,11 @@ class PageStepDefs extends MpeSteps {
     if (title.contains("protected allowances")) {
       waitForTitle(s"$title - GOV.UK")
     }
-    else if(title.contains("feedback")){
-     waitForTitle(s"$title - GOV.UK")
+    else if (title.contains("feedback")) {
+      waitForTitle(s"$title - GOV.UK")
     }
     else {
-      waitForTitle(s"$title - Check a pension scheme member’s protections and enhancements")
+      waitForTitle(s"$title - Check a pension scheme member’s protections and enhancements - GOV.UK")
     }
   }
 
@@ -175,22 +179,44 @@ class PageStepDefs extends MpeSteps {
 
   Then("""^The "(.*)" tables contain:$""") { (cardType: String, dataTable: DataTable) =>
     val rows = dataTable.asMaps(classOf[String], classOf[String]).asScala
-    rows.foreach { row =>
-      val scalaRow = row.asScala
-      val protectionType = scalaRow("Type")
-      val container = driver.findElement(By.xpath(s"//*[contains(text(), '$protectionType')]/ancestor::div[contains(@class, 'govuk-summary-card')]"))
+
+    def safeTrim(value: String): String = Option(value).map(_.trim).getOrElse("")
+
+    rows.foreach { scalaRow =>
+      val protectionType = safeTrim(scalaRow.get("Type"))
+      val expectedStatus = safeTrim(scalaRow.getOrElse("Status", null))
+      val expectedFactor = safeTrim(scalaRow.getOrElse("Factor", null))
+      val expectedEnhancementFactor = safeTrim(scalaRow.getOrElse("Enhancement factor", null))
+      val expectedReference = safeTrim(scalaRow.getOrElse("Reference number", null))
+      val expectedProtectedAmount = safeTrim(scalaRow.getOrElse("Protected amount", null))
+      val expectedLumpSum = safeTrim(scalaRow.getOrElse("Lump Sum", null))
+      val containers = driver.findElements(By.xpath(s"//*[contains(text(), '$protectionType')]/ancestor::div[contains(@class,'govuk-summary-card')]")).asScala
+      val container = containers.find { c =>
+        val statusText = Try(c.findElement(By.xpath(".//dt[contains(normalize-space(.), 'Status')]/following-sibling::dd")).getText.trim).getOrElse("")
+        statusText == expectedStatus
+      }.getOrElse(
+        throw new NoSuchElementException(s"No matching card found for Type='$protectionType' and Status='$expectedStatus'")
+      )
+
       def verifyIfPresent(label: String, expected: String): Unit = {
         if (expected.nonEmpty) {
-          val xpath = s".//div[contains(@class,'govuk-summary-list__row')][dt[contains(normalize-space(.), '$label')]]/dd"
-          val actual = container.findElement(By.xpath(xpath)).getText.trim
-          assert(actual == expected, s"For $protectionType - $label: expected '$expected' but found '$actual'")
+          val xpath = s".//dt[contains(normalize-space(.), '$label')]/following-sibling::dd"
+          val actual = Try(container.findElement(By.xpath(xpath)).getText.trim).getOrElse("")
+          assert(
+            actual == expected,
+            s"For '$protectionType' - '$label': expected '$expected' but found '$actual'"
+          )
         }
       }
-      verifyIfPresent("Status", Option(row.get("Status")).getOrElse(""))
-      verifyIfPresent("Protected amount", Option(row.get("Protected amount")).getOrElse(""))
-      verifyIfPresent("Lump Sum", Option(row.get("Lump Sum")).getOrElse(""))
-      if (cardType == "Protection") verifyIfPresent("Factor", Option(row.get("Factor")).getOrElse("")) else verifyIfPresent("Enhancement factor", Option(row.get("Enhancement factor")).getOrElse(""))
-      verifyIfPresent("Protection reference number", Option(row.get("Reference number")).getOrElse(""))
+      verifyIfPresent("Status", expectedStatus)
+      verifyIfPresent("Protected amount", expectedProtectedAmount)
+      verifyIfPresent("Lump Sum", expectedLumpSum)
+      if (cardType == "Protection") {
+        verifyIfPresent("Factor", expectedFactor)
+      } else {
+        verifyIfPresent("Enhancement factor", expectedEnhancementFactor)
+      }
+      verifyIfPresent("Protection reference number", expectedReference)
     }
   }
 }
