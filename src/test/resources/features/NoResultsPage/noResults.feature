@@ -5,8 +5,8 @@ Feature:As a PSA/PSP User
   Scenario Outline: Happy Path Journey - Navigate to No Results page when details entered within the Lifetime Protections and Enhancements service do not match an existing protection certificate.
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "What you'll need" page
-    When I click the "Continue" link
+    Then I should be on the "Check a pension scheme member's protections and enhancements" page
+    When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
     When I fill in the "firstName" field with "Emily"
     And I fill in the "lastName" field with "Carter"
@@ -24,7 +24,7 @@ Feature:As a PSA/PSP User
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
     When I click the "Submit" link
-    Then I should be on the "Your search didn't return any results" page
+    Then I should be on the "The details you entered did not match an existing protection certificate" page
     And I should see the following values on the page
       | value             |
       | Emily Carter      |
@@ -42,8 +42,8 @@ Feature:As a PSA/PSP User
   Scenario Outline: Happy Path Journey - Navigate to No Results page when the member details match but he does not have any exiting Protection certificate
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "What you'll need" page
-    When I click the "Continue" link
+    Then I should be on the "Check a pension scheme member's protections and enhancements" page
+    When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
     When I fill in the "firstName" field with "Olivia"
     And I fill in the "lastName" field with "Thompson"
@@ -61,7 +61,7 @@ Feature:As a PSA/PSP User
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
     When I click the "Submit" link
-    Then I should be on the "Your search didn't return any results" page
+    Then I should be on the "The details you entered did not match an existing protection certificate" page
     And I should see the following values on the page
       | value             |
       | Olivia Thompson   |
