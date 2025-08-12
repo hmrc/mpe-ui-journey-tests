@@ -5,8 +5,8 @@ Feature:As a PSA/PSP User
   Scenario Outline: Happy Path Journey - Navigate to Results page and verify if the members details are matched successfully for the Protections with valid NINO
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "What you'll need" page
-    When I click the "Continue" link
+    Then I should be on the "Check a pension scheme member's protections and enhancements" page
+    When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
     When I fill in the "firstName" field with "John"
     And I fill in the "lastName" field with "Smith"
@@ -36,7 +36,7 @@ Feature:As a PSA/PSP User
       | Managing pension schemes                                           |
       | Check a pension scheme member’s protections and enhancements       |
       | Check another pension scheme member's protections and enhancements |
-      | Managing pension schemes dashboard                                 |
+      | Return to Managing pension schemes dashboard                       |
     And I should see the "Print this page" button on the page
     And The Checked On time stamp should display current date and time
     And The "Protection" tables contain:
@@ -50,8 +50,8 @@ Feature:As a PSA/PSP User
   Scenario Outline: Happy Path Journey - Navigate to Results page and verify if the members details are matched successfully for the Protection and Enhancements with valid TRN number
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "What you'll need" page
-    When I click the "Continue" link
+   Then I should be on the "Check a pension scheme member's protections and enhancements" page
+    When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
     When I fill in the "firstName" field with "Tim"
     And I fill in the "lastName" field with "Thomas"
@@ -88,8 +88,8 @@ Feature:As a PSA/PSP User
   Scenario Outline: Happy Path Journey - Navigate to Results page and verify if the members details are matched successfully for multiple Protections and Enhancements
     Given I have a new session
     When I fill in the auth details for enrolment <enrolmentID> with value <enrolmentValue>
-    Then I should be on the "What you'll need" page
-    When I click the "Continue" link
+   Then I should be on the "Check a pension scheme member's protections and enhancements" page
+    When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
     When I fill in the "firstName" field with "Pearl"
     And I fill in the "lastName" field with "Brown"
@@ -119,11 +119,12 @@ Feature:As a PSA/PSP User
       | Fixed Protection 2016                                                          | Active - the protection is valid and can be used                                                                  |                  |          |                    | FP163456789012A             |
       | International Enhancement (transfer from a recognised overseas pension scheme) | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.23               | IE243456789012A             |
       | International Enhancement (individuals who are relevant overseas individuals)  | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.12               | IE211234567890A             |
-      | Pension Credit                                                                 | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.09               | PCRD1234567890A             |
-      | Pension Credit                                                                 | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.06               | PCRD2345678901A             |
+      | Pension Credit (pre-commencement)                                              | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.09               | PCRD1234567890A             |
+      | Pension Credit (from previously crystallised rights)                           | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.06               | PCRD2345678901A             |
       | Individual Protection 2016                                                     | Dormant - the protection is approved, but a higher level of protection is currently in place, so it is not active | £1,249,231       |          |                    |                             |
+      | Fixed Protection 2016                                                          | Withdrawn - the protection has been lost, so it is not valid                                                      |                  |          |                    | FP161098274657A             |
       | Primary Protection                                                             | Withdrawn - the protection has been lost, so it is not valid                                                      |                  | £189,321 | 0.45               | 2345678W                    |
 
-  Examples:
+    Examples:
     | enrolmentID | enrolmentValue |
     | PSA         | A2100001       |
