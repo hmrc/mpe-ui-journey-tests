@@ -23,7 +23,7 @@ Feature:As a PSA/PSP User
     And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 A"
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
-    When I click the "Submit" link
+    When I click the "Submit" button
     Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
@@ -68,7 +68,7 @@ Feature:As a PSA/PSP User
     And I fill in the "psaCheckRef" field with "PSA56781234W"
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
-    When I click the "Submit" link
+    When I click the "Submit" button
     Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
@@ -106,7 +106,7 @@ Feature:As a PSA/PSP User
     And I fill in the "psaCheckRef" field with "PSA67812345W"
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
-    When I click the "Submit" link
+    When I click the "Submit" button
     Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
