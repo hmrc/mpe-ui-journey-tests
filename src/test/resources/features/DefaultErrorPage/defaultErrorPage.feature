@@ -23,7 +23,7 @@ Feature:As a PSA/PSP User
     And I fill in the "psaCheckRef" field with "PSA21436587W"
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
-    When I click the "Submit" link
+    When I click the "Submit" button
     Then I should be on the "Sorry, there is a problem with the service" page
    And I should see the "contact us for help with pension scheme queries" link on the page
 
