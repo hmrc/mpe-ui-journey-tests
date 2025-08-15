@@ -23,7 +23,7 @@ Feature:As a PSA/PSP User
     And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 A"
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
-    When I click the "Submit" link
+    When I click the "Submit" button
     Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
@@ -41,7 +41,7 @@ Feature:As a PSA/PSP User
     And The Checked On time stamp should display current date and time
     And The "Protection" tables contain:
       | Type                | Status                                           | Protected amount | Lump Sum | Factor | Protection reference number |
-      | Enhanced Protection | Active - the protection is valid and can be used |                  | 12%      |        | 1234567A                    |
+      | Enhanced protection | Active - the protection is valid and can be used |                  | 12%      |        | 1234567A                    |
 
     Examples:
       | enrolmentID | enrolmentValue |
@@ -68,7 +68,7 @@ Feature:As a PSA/PSP User
     And I fill in the "psaCheckRef" field with "PSA56781234W"
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
-    When I click the "Submit" link
+    When I click the "Submit" button
     Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
@@ -77,11 +77,11 @@ Feature:As a PSA/PSP User
       | 22 B6 78 90       |
       | PSA 56 78 12 34 W |
     And The "Protection" tables contain:
-      | Type                                                                           | Status                                            | Protected amount | Lump Sum | Enhancement factor | Protection reference number |
-      | Enhanced Protection                                                            | Active - the protection is valid and can be used  |                  | 28%      |                    | EPRO3456789012A             |
-      | International Enhancement (transfer from a recognised overseas pension scheme) | Active - the enhancement is valid and can be used |                  |          | 0.75               | IE242345678901A             |
+      | Type                                                                | Status                                            | Protected amount | Lump Sum | Enhancement factor | Protection reference number |
+      | Enhanced protection                                                 | Active - the protection is valid and can be used  |                  | 28%      |                    | EPRO3456789012A             |
+      | Non-residence factor for a transfer from an overseas pension scheme | Active - the enhancement is valid and can be used |                  |          | 0.75               | IE242345678901A             |
 
-  Examples:
+    Examples:
     | enrolmentID | enrolmentValue |
     | PSP         | 21000002       |
 
@@ -106,7 +106,7 @@ Feature:As a PSA/PSP User
     And I fill in the "psaCheckRef" field with "PSA67812345W"
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
-    When I click the "Submit" link
+    When I click the "Submit" button
     Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
@@ -115,15 +115,15 @@ Feature:As a PSA/PSP User
       | NW 99 99 99 A     |
       | PSA 67 81 23 45 W |
     And The "Protection" tables contain:
-      | Type                                                                           | Status                                                                                                            | Protected amount | Lump sum | Enhancement factor | Protection reference number |
-      | Fixed Protection 2016                                                          | Active - the protection is valid and can be used                                                                  |                  |          |                    | FP163456789012A             |
-      | International Enhancement (transfer from a recognised overseas pension scheme) | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.23               | IE243456789012A             |
-      | International Enhancement (individuals who are relevant overseas individuals)  | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.12               | IE211234567890A             |
-      | Pension Credit (pre-commencement)                                              | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.09               | PCRD1234567890A             |
-      | Pension Credit (from previously crystallised rights)                           | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.06               | PCRD2345678901A             |
-      | Individual Protection 2016                                                     | Dormant - the protection is approved, but a higher level of protection is currently in place, so it is not active | £1,249,231       |          |                    |                             |
-      | Fixed Protection 2016                                                          | Withdrawn - the protection has been lost, so it is not valid                                                      |                  |          |                    | FP161098274657A             |
-      | Primary Protection                                                             | Withdrawn - the protection has been lost, so it is not valid                                                      |                  | £189,321 | 0.45               | 2345678W                    |
+      | Type                                                                | Status                                                                                                            | Protected amount | Lump sum | Enhancement factor | Protection reference number |
+      | Fixed protection 2016                                               | Active - the protection is valid and can be used                                                                  |                  |          |                    | FP163456789012A             |
+      | Non-residence factor for a transfer from an overseas pension scheme | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.23               | IE243456789012A             |
+      | Non-residence factor for a relevant overseas individual             | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.12               | IE211234567890A             |
+      | Pension credit factor for pre-commencement pension credit rights    | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.09               | PCRD1234567890A             |
+      | Pension credit factor for previously crystallised rights            | Active - the enhancement is valid and can be used                                                                 |                  |          | 0.06               | PCRD2345678901A             |
+      | Individual protection 2016                                          | Dormant - the protection is approved, but a higher level of protection is currently in place, so it is not active | £1,249,231       |          |                    |                             |
+      | Fixed protection 2016                                               | Withdrawn - the protection has been lost, so it is not valid                                                      |                  |          |                    | FP161098274657A             |
+      | Primary protection                                                  | Withdrawn - the protection has been lost, so it is not valid                                                      |                  | £189,321 | 0.45               | 2345678W                    |
 
     Examples:
     | enrolmentID | enrolmentValue |
