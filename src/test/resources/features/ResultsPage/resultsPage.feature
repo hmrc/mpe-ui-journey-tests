@@ -40,7 +40,7 @@ Feature:As a PSA/PSP User
     And I should see the "Print this page" button on the page
     And The Checked On time stamp should display current date and time
     And The "Protection" tables contain:
-      | Type                | Status                                           | Protected amount | Lump Sum | Factor | Protection reference number |
+      | Type                | Status                                           | Protected amount | Lump sum | Factor | Protection reference number |
       | Enhanced protection | Active - the protection is valid and can be used |                  | 12%      |        | 1234567A                    |
 
     Examples:
@@ -77,7 +77,7 @@ Feature:As a PSA/PSP User
       | 22 B6 78 90       |
       | PSA 56 78 12 34 W |
     And The "Protection" tables contain:
-      | Type                                                                | Status                                            | Protected amount | Lump Sum | Enhancement factor | Protection reference number |
+      | Type                                                                | Status                                            | Protected amount | Lump sum | Enhancement factor | Protection reference number |
       | Enhanced protection                                                 | Active - the protection is valid and can be used  |                  | 28%      |                    | EPRO3456789012A             |
       | Non-residence factor for a transfer from an overseas pension scheme | Active - the enhancement is valid and can be used |                  |          | 0.75               | IE242345678901A             |
 
