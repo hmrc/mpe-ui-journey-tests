@@ -39,7 +39,6 @@ class PageStepDefs extends MpeSteps {
   When("""^I wait for "(.*)" link to be visible$""") { link: String =>
     retryUntil(_ => {
       pageRefresh()
-      Thread.sleep(400)
       find(By.linkText(link)).isDisplayed
     }, timeoutSeconds = 1200, ignoring = List(classOf[NoSuchElementException]))
   }

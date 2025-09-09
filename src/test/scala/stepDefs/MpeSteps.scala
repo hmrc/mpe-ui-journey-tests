@@ -115,7 +115,6 @@ trait MpeSteps
     var loop: Int = 1
     while (!(pageSource contains text) && loop <= timeout) {
       loop = loop + 1
-      Thread.sleep(1000)
     }
 
     if (loop > timeout) Assert.fail(s"Unable to validate the text on the page : $text")
