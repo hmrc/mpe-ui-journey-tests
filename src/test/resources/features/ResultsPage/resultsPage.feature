@@ -20,7 +20,7 @@ Feature:As a PSA/PSP User
     When I fill in the "nino" field with "JX 99 99 99 A"
     And I click the "Continue" button
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
-    And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 A"
+    And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 W"
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
     When I click the "Submit" button
@@ -28,9 +28,9 @@ Feature:As a PSA/PSP User
     And I should see the following values on the page
       | value             |
       | John Smith        |
-      | 10 September 1954  |
+      | 10 September 1954 |
       | JX 99 99 99 A     |
-      | PSA 12 34 56 78 A |
+      | PSA 12 34 56 78 W |
     And I should see the following links on the page
       | links                                                              |
       | Managing pension schemes                                           |
@@ -53,37 +53,37 @@ Feature:As a PSA/PSP User
    Then I should be on the "Check a pension scheme member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
-    When I fill in the "firstName" field with "Tim"
-    And I fill in the "lastName" field with "Thomas"
+    When I fill in the "firstName" field with "Alan"
+    And I fill in the "lastName" field with "Williams"
     And I click the "Continue" button
     Then I should be on the "What is the member's date of birth?" page
-    When I fill in the "dateOfBirth.day" field with "29"
-    And I fill in the "dateOfBirth.month" field with "11"
-    And I fill in the "dateOfBirth.year" field with "1963"
+    When I fill in the "dateOfBirth.day" field with "27"
+    And I fill in the "dateOfBirth.month" field with "02"
+    And I fill in the "dateOfBirth.year" field with "1949"
     And I click the "Continue" button
     Then I should be on the "What is the member's National Insurance number?" page
-    When I fill in the "nino" field with "22B67890"
+    When I fill in the "nino" field with "66Q03379"
     And I click the "Continue" button
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
-    And I fill in the "psaCheckRef" field with "PSA56781234W"
+    And I fill in the "psaCheckRef" field with "PSA23456781W"
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
     When I click the "Submit" button
     Then I should be on the "Results of protections and enhancements check" page
     And I should see the following values on the page
       | value             |
-      | Tim Thomas        |
-      | 29 November 1963  |
-      | 22 B6 78 90       |
-      | PSA 56 78 12 34 W |
+      | Alan Williams     |
+      | 27 February 1949  |
+      | 66 Q0 33 79       |
+      | PSA 23 45 67 81 W |
     And The "Protection" tables contain:
-      | Type                                                                | Status                                            | Protected amount | Lump sum | Enhancement factor | Protection reference number |
-      | Enhanced protection                                                 | Active - the protection is valid and can be used  |                  | 28%      |                    | EPRO3456789012A             |
-      | Non-residence factor for a transfer from an overseas pension scheme | Active - the enhancement is valid and can be used |                  |          | 0.75               | IE242345678901A             |
+      | Type                | Status                                                                                                            | Protected amount | Lump sum | Enhancement factor | Protection reference number |
+      | Enhanced protection | Active - the protection is valid and can be used                                                                  |                  | 12%      |                    | EPRO2345678901A             |
+      | Primary protection  | Dormant - the protection is approved, but a higher level of protection is currently in place, so it is not active |                  | £234,876 | 0.54               |                             |
 
     Examples:
-    | enrolmentID | enrolmentValue |
-    | PSP         | 21000002       |
+      | enrolmentID | enrolmentValue |
+      | PSP         | 21000002       |
 
   Scenario Outline: Happy Path Journey - Navigate to Results page and verify if the members details are matched successfully for multiple Protections and Enhancements
     Given I have a new session

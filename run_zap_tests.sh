@@ -1,6 +1,4 @@
 #!/bin/bash
-mongo mpe --eval "db.dropDatabase()"
-mongo mpe-bulk --eval "db.dropDatabase()"
 BROWSER=$1
 ENVIRONMENT=$2
 

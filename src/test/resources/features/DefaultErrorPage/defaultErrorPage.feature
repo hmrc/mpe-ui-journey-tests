@@ -17,7 +17,7 @@ Feature:As a PSA/PSP User
     And I fill in the "dateOfBirth.year" field with "1969"
     And I click the "Continue" button
     Then I should be on the "What is the member's National Insurance number?" page
-    When I fill in the "nino" field with "AA500500A"
+    When I fill in the "nino" field with "ER400400A"
     And I click the "Continue" button
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
     And I fill in the "psaCheckRef" field with "PSA21436587W"
