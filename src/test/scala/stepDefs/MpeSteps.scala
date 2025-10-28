@@ -28,6 +28,7 @@ import uk.gov.hmrc.selenium.webdriver.Browser
 import java.time.Duration
 import java.util
 import scala.jdk.CollectionConverters._
+import scala.util.Random
 
 trait MpeSteps
   extends WebBrowser
@@ -130,5 +131,27 @@ trait MpeSteps
       case _ => throw new IllegalArgumentException( s"$link not present")
     }
     find(By.id(id)).click()
+  }
+
+  def generateNino(prefix: String = "AA"): String = {
+    val num         = Random.nextInt(1000000)
+    val suffix      = "A"
+    val str: String = Random.alphanumeric.filter(_.isLetter).take(2).map(_.toUpper).mkString
+
+    prefix + f"$str$num%06d$suffix".drop(prefix.length)
+  }
+
+  def generateTrn(prefix: String = "11"): String = {
+    val num            = Random.nextInt(100000)
+    val str: Char      = Random.alphanumeric.filter(_.isLetter).head.toUpper
+    val prefixNum: Int = Random.nextInt(100)
+
+    prefix + f"$prefixNum%02d$str$num%05d".drop(prefix.length)
+  }
+
+  def generateCheckRef(prefix: String = ""): String = {
+    val num       = Random.nextInt(100000000)
+    val str: Char = Random.alphanumeric.filter(_.isLetter).head.toUpper
+    prefix + f"PSA$num%08d$str".drop(prefix.length)
   }
 }
