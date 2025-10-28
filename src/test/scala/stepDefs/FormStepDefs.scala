@@ -27,6 +27,21 @@ class FormStepDefs extends MpeSteps {
     setTextField(IdQuery(field), value)
   }
 
+  When("""^I fill in the nino "(.*)" field with "(.*)"$""") { (field: String, value: String) =>
+    val randomNINO = generateNino(value)
+    setTextField(IdQuery(field), randomNINO)
+  }
+
+  When("""^I fill in the TRN "(.*)" field with "(.*)"$""") { (field: String, value: String) =>
+    val randomTRN = generateTrn(value)
+    setTextField(IdQuery(field), randomTRN)
+  }
+
+  When("""^I fill in the psaCheckRef "(.*)" field with "(.*)"$""") { (field: String, value: String) =>
+    val randomPSACheckRef: String = generateCheckRef(value)
+    setTextField(IdQuery(field), randomPSACheckRef)
+  }
+
   When("""^I fill in the "(.*)" comments box with "(.*)"$""") { (field: String, value: String) =>
     setTextField(IdQuery(field), value)
   }

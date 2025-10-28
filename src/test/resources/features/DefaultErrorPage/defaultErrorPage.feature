@@ -8,8 +8,8 @@ Feature:As a PSA/PSP User
     Then I should be on the "Check a pension scheme member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
-    When I fill in the "firstName" field with "Emily"
-    And I fill in the "lastName" field with "Carter"
+    When I fill in the "firstName" field with "EFIRSTNAMEy"
+    And I fill in the "lastName" field with "CLASTNAMEr"
     And I click the "Continue" button
     Then I should be on the "What is the member's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "18"
@@ -17,10 +17,10 @@ Feature:As a PSA/PSP User
     And I fill in the "dateOfBirth.year" field with "1969"
     And I click the "Continue" button
     Then I should be on the "What is the member's National Insurance number?" page
-    When I fill in the "nino" field with "ER400400A"
+    When I fill in the nino "nino" field with "ER50"
     And I click the "Continue" button
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
-    And I fill in the "psaCheckRef" field with "PSA21436587W"
+    And I fill in the psaCheckRef "psaCheckRef" field with "PSA214"
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
     When I click the "Submit" button

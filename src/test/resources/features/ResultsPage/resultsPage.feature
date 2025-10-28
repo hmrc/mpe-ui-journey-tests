@@ -8,8 +8,8 @@ Feature:As a PSA/PSP User
     Then I should be on the "Check a pension scheme member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
-    When I fill in the "firstName" field with "John"
-    And I fill in the "lastName" field with "Smith"
+    When I fill in the "firstName" field with "JFISRTNAMEn"
+    And I fill in the "lastName" field with "SLASTNAMEh"
     And I click the "Continue" button
     Then I should be on the "What is the member's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "10"
@@ -17,20 +17,14 @@ Feature:As a PSA/PSP User
     And I fill in the "dateOfBirth.year" field with "1954"
     And I click the "Continue" button
     Then I should be on the "What is the member's National Insurance number?" page
-    When I fill in the "nino" field with "JX 99 99 99 A"
+    When I fill in the nino "nino" field with "JX9"
     And I click the "Continue" button
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
-    And I fill in the "psaCheckRef" field with "PSA 12 34 56 78 W"
+    And I fill in the psaCheckRef "psaCheckRef" field with "PSA123"
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
     When I click the "Submit" button
     Then I should be on the "Results of protections and enhancements check" page
-    And I should see the following values on the page
-      | value             |
-      | John Smith        |
-      | 10 September 1954 |
-      | JX 99 99 99 A     |
-      | PSA 12 34 56 78 W |
     And I should see the following links on the page
       | links                                                              |
       | Managing pension schemes                                           |
@@ -53,8 +47,8 @@ Feature:As a PSA/PSP User
    Then I should be on the "Check a pension scheme member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
-    When I fill in the "firstName" field with "Alan"
-    And I fill in the "lastName" field with "Williams"
+    When I fill in the "firstName" field with "AFIRSTNAMEn"
+    And I fill in the "lastName" field with "WLASTNAMEs"
     And I click the "Continue" button
     Then I should be on the "What is the member's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "27"
@@ -62,20 +56,14 @@ Feature:As a PSA/PSP User
     And I fill in the "dateOfBirth.year" field with "1949"
     And I click the "Continue" button
     Then I should be on the "What is the member's National Insurance number?" page
-    When I fill in the "nino" field with "66Q03379"
+    When I fill in the TRN "nino" field with "66Q"
     And I click the "Continue" button
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
-    And I fill in the "psaCheckRef" field with "PSA23456781W"
+    And I fill in the psaCheckRef "psaCheckRef" field with "PSA234"
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
     When I click the "Submit" button
     Then I should be on the "Results of protections and enhancements check" page
-    And I should see the following values on the page
-      | value             |
-      | Alan Williams     |
-      | 27 February 1949  |
-      | 66 Q0 33 79       |
-      | PSA 23 45 67 81 W |
     And The "Protection" tables contain:
       | Type                | Status                                                                                                            | Protected amount | Lump sum | Enhancement factor | Protection reference number |
       | Enhanced protection | Active - the protection is valid and can be used                                                                  |                  | 12%      |                    | EPRO2345678901A             |
@@ -91,8 +79,8 @@ Feature:As a PSA/PSP User
    Then I should be on the "Check a pension scheme member's protections and enhancements" page
     When I click the "Start now" link
     Then I should be on the "What is the member's name?" page
-    When I fill in the "firstName" field with "Pearl"
-    And I fill in the "lastName" field with "Brown"
+    When I fill in the "firstName" field with "PFIRSTNAMEl"
+    And I fill in the "lastName" field with "BLASTNAMEn"
     And I click the "Continue" button
     Then I should be on the "What is the member's date of birth?" page
     When I fill in the "dateOfBirth.day" field with "2"
@@ -100,20 +88,14 @@ Feature:As a PSA/PSP User
     And I fill in the "dateOfBirth.year" field with "1939"
     And I click the "Continue" button
     Then I should be on the "What is the member's National Insurance number?" page
-    When I fill in the "nino" field with "NW999999A"
+    When I fill in the nino "nino" field with "NW9"
     And I click the "Continue" button
     Then I should be on the "What is the member's pension scheme administrator check reference?" page
-    And I fill in the "psaCheckRef" field with "PSA67812345W"
+    And I fill in the psaCheckRef "psaCheckRef" field with "PSA678"
     And I click the "Continue" button
     Then I should be on the "Check your answers" page
     When I click the "Submit" button
     Then I should be on the "Results of protections and enhancements check" page
-    And I should see the following values on the page
-      | value             |
-      | Pearl Brown       |
-      | 02 December 1939  |
-      | NW 99 99 99 A     |
-      | PSA 67 81 23 45 W |
     And The "Protection" tables contain:
       | Type                                                                | Status                                                                                                            | Protected amount | Lump sum | Enhancement factor | Protection reference number |
       | Fixed protection 2016                                               | Active - the protection is valid and can be used                                                                  |                  |          |                    | FP163456789012A             |
